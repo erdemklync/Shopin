@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<style name="Base.Theme.Shopin" parent="Theme.Material3.DayNight.NoActionBar">
 		<item name="colorPrimary">@color/brand_color_primary</item>
@@ -6,7 +7,7 @@
 
 		<item name="android:navigationBarColor">@android:color/transparent</item>
 		<item name="android:statusBarColor">@android:color/transparent</item>
+		<item name="android:windowLightStatusBar">?attr/isLightTheme</item>
 	</style>
-
 	<style name="Theme.Shopin" parent="Base.Theme.Shopin" />
 </resources>
