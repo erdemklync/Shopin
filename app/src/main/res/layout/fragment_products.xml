@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	tools:context=".presentation.products.ProductsFragment">
 
-</FrameLayout>
+	<GridView
+		android:id="@+id/grid_view_products"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:clipToPadding="false"
+		android:padding="16dp"
+		android:verticalSpacing="16dp"
+		android:horizontalSpacing="16dp"
+		android:numColumns="2"
+		tools:listitem="@layout/item_product"
+		/>
+
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
+		android:id="@+id/fab_basket"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="@dimen/fab_margin"
+		android:src="@drawable/ic_shopping_cart"
+		android:contentDescription="@string/content_description_basket"
+
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
