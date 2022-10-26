@@ -7,16 +7,27 @@
 	android:layout_height="match_parent"
 	tools:context=".presentation.products.ProductsFragment">
 
-	<GridView
-		android:id="@+id/grid_view_products"
+	<com.google.android.material.progressindicator.CircularProgressIndicator
+		android:id="@+id/loading_indicator"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:visibility="visible"
+		android:indeterminate="true"
+
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		/>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/recycler_view_products"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:clipToPadding="false"
-		android:padding="16dp"
-		android:verticalSpacing="16dp"
-		android:horizontalSpacing="16dp"
-		android:numColumns="2"
+		android:padding="8dp"
 		tools:listitem="@layout/item_product"
+		android:visibility="gone"
 		/>
 
 	<com.google.android.material.floatingactionbutton.FloatingActionButton
