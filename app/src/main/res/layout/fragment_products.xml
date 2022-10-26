@@ -14,21 +14,32 @@
 		android:visibility="visible"
 		android:indeterminate="true"
 
-		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
-		/>
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<com.google.android.material.appbar.MaterialToolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:title="shopin"
+		app:titleTextAppearance="@style/App.Shopin.TitleTextAppearance"
+		app:layout_scrollFlags="scroll|enterAlways"
+
+		app:layout_constraintTop_toTopOf="parent" />
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/recycler_view_products"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:clipToPadding="false"
+		android:layout_height="0dp"
 		android:padding="8dp"
+		android:clipToPadding="false"
 		tools:listitem="@layout/item_product"
 		android:visibility="gone"
-		/>
+
+		app:layout_constraintTop_toBottomOf="@id/toolbar"
+		app:layout_constraintBottom_toBottomOf="parent" />
 
 	<com.google.android.material.floatingactionbutton.FloatingActionButton
 		android:id="@+id/fab_basket"
@@ -38,8 +49,7 @@
 		android:src="@drawable/ic_shopping_cart"
 		android:contentDescription="@string/content_description_basket"
 
-		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
-		/>
+		app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,13 +5,13 @@ import com.erdemklync.shopin.domain.repository.ProductRepository
 import com.erdemklync.shopin.util.DataState
 import javax.inject.Inject
 
-class GetProducts @Inject constructor(
+class GetProductById @Inject constructor(
     private val productRepository: ProductRepository
 ) {
-    suspend operator fun invoke(): DataState<List<Product>> {
+    suspend operator fun invoke(id: Int) : DataState<Product> {
         return try {
             DataState.Success(
-                data = productRepository.getProducts()
+                data = productRepository.getProductById(id)
             )
         }catch (e: Exception){
             e.printStackTrace()

@@ -1,4 +1,4 @@
-package com.erdemklync.shopin.presentation.products
+package com.erdemklync.shopin.presentation.product_detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,38 +10,24 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import com.erdemklync.shopin.databinding.FragmentProductsBinding
+import com.erdemklync.shopin.databinding.FragmentProductDetailBinding
 import com.erdemklync.shopin.util.DataState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ProductsFragment : Fragment() {
+class ProductDetailFragment : Fragment() {
 
-    private val viewModel: ProductsViewModel by viewModels()
+    private val viewModel: ProductDetailViewModel by viewModels()
 
-    private var _binding: FragmentProductsBinding? = null
+    private var _binding: FragmentProductDetailBinding? = null
     private val binding get() = _binding!!
 
-    private val productsAdapter = ProductsAdapter { product ->
-        val action = ProductsFragmentDirections.actionProductsFragmentToProductDetailFragment(product.id)
-        findNavController().navigate(action)
-    }
-
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentProductsBinding.inflate(inflater, container, false)
-        with(binding) {
-            recyclerViewProducts.apply {
-                layoutManager = GridLayoutManager(requireContext(), 2)
-                adapter = productsAdapter
-            }
-        }
+        _binding = FragmentProductDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -56,9 +42,7 @@ class ProductsFragment : Fragment() {
                             Toast.makeText(requireContext(), state.message, Toast.LENGTH_LONG).show()
                         }
                         is DataState.Success -> {
-                            binding.loadingIndicator.visibility = View.GONE
-                            binding.recyclerViewProducts.visibility = View.VISIBLE
-                            productsAdapter.submitList(state.data)
+                            binding.textProductTitle.text = state.data.title
                         }
                     }
                 }
