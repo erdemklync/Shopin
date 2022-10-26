@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.erdemklync.shopin.data.remote.entity.Product
 import com.erdemklync.shopin.databinding.ItemProductBinding
 
@@ -18,6 +19,11 @@ class ProductsAdapter(
 
         fun bind(product: Product, onClick:(Product) -> Unit) {
             with(binding) {
+                Glide
+                    .with(binding.root)
+                    .load(product.image)
+                    .into(binding.imageProduct)
+
                 textProductTitle.text = product.title
                 textProductPrice.text = product.price.toString()
                 root.setOnClickListener {
