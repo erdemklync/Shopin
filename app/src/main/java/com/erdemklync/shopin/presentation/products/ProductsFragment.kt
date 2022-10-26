@@ -23,6 +23,7 @@ class ProductsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProductsBinding.inflate(inflater, container, false)
+        viewModel.state
         return binding.root
     }
 
