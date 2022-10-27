@@ -1,22 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<style name="ShapeAppearanceOverlay.Shopin.AddToBasketButton" parent="">
-		<item name="cornerFamily">rounded</item>
-		<item name="cornerSizeTopLeft">24dp</item>
-		<item name="cornerSizeBottomLeft">0dp</item>
-		<item name="cornerSizeBottomRight">0dp</item>
-		<item name="cornerSizeTopRight">0dp</item>
-	</style>
-	<style name="Widget.Shopin.AddToBasketButton" parent="Widget.Material3.Button.IconButton.Filled">
-		<item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Shopin.AddToBasketButton</item>
-		<item name="android:paddingStart">24dp</item>
-		<item name="android:paddingEnd">24dp</item>
-		<item name="android:insetTop">0dp</item>
-		<item name="android:insetBottom">0dp</item>
-		<item name="android:insetRight">0dp</item>
-		<item name="android:insetLeft">0dp</item>
-		<item name="android:backgroundTint">@color/brand_color_primary</item>
-	</style>
 	<style name="App.Shopin.TitleTextAppearance" parent="TextAppearance.Material3.TitleLarge">
 		<item name="android:textColor">@color/brand_color_primary</item>
 		<item name="android:textStyle">italic</item>
@@ -24,4 +7,12 @@
 		<item name="fontFamily">@font/open_sans_extra_bold_italic</item>
 		<item name="android:letterSpacing">-0.1</item>
 	</style>
+	<style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.Material3.Button.OutlinedButton">
+		<item name="iconPadding">0dp</item>
+		<item name="android:minWidth">24dp</item>
+		<item name="android:minHeight">48dp</item>
+		<item name="android:paddingStart">12dp</item>
+		<item name="android:paddingEnd">12dp</item>
+	</style>
+
 </resources>
