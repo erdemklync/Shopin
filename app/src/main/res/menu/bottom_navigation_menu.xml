@@ -4,7 +4,17 @@
 
 	<item
 		android:id="@+id/productsFragment"
-		android:icon="@drawable/ic_shopping_cart"
+		android:icon="@drawable/ic_home"
 		android:title="@string/title_products" />
+
+	<item
+		android:id="@+id/searchFragment"
+		android:icon="@drawable/ic_search"
+		android:title="@string/title_search" />
+
+	<item
+		android:id="@+id/profileFragment"
+		android:icon="@drawable/ic_person"
+		android:title="@string/title_profile" />
 
 </menu>

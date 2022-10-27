@@ -1,6 +1,9 @@
 <resources>
-	<string name="app_name">Shopin</string>
+	<string name="app_name">shopin</string>
 	<string name="title_products">Products</string>
-	<string name="content_description_basket">Basket</string>
+	<string name="content_description_cart">Cart</string>
 	<string name="content_description_product_image">Product Image</string>
+	<string name="add_to_cart">Add to Cart</string>
+	<string name="title_search">Search</string>
+	<string name="title_profile">Profile</string>
 </resources>
