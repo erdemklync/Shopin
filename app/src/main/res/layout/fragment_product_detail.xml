@@ -29,100 +29,102 @@
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintTop_toTopOf="parent" />
 
-	<androidx.constraintlayout.widget.Group
+	<androidx.constraintlayout.widget.ConstraintLayout
 		android:id="@+id/content_detail"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:visibility="invisible"
-		tools:visibility="visible"
-		app:constraint_referenced_ids="image_product,rating_bar, text_product_rating_count, text_product_rating_rate, text_product_title,text_product_description,layout_bottom" />
-
-	<ImageView
-		android:id="@+id/image_product"
 		android:layout_width="0dp"
-		android:layout_height="250dp"
-		tools:src="@drawable/img"
-		android:contentDescription="@string/content_description_product_image"
+		android:layout_height="0dp"
+		android:paddingHorizontal="24dp"
+		android:visibility="invisible"
 
 		app:layout_constraintTop_toBottomOf="@id/toolbar"
+		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintEnd_toEndOf="parent" />
+		app:layout_constraintEnd_toEndOf="parent">
 
-	<TextView
-		android:id="@+id/text_product_title"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_margin="16dp"
-		android:textSize="18sp"
-		android:textStyle="bold"
-		tools:text="@tools:sample/lorem"
+		<ImageView
+			android:id="@+id/image_product"
+			android:layout_width="0dp"
+			android:layout_height="250dp"
+			tools:src="@drawable/img"
+			android:contentDescription="@string/content_description_product_image"
 
-		app:layout_constraintTop_toBottomOf="@id/image_product" />
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent" />
 
-	<TextView
-		android:id="@+id/text_product_rating_rate"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginStart="16dp"
-		tools:text="3.5"
+		<TextView
+			android:id="@+id/text_product_category"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:textSize="12sp"
+			tools:text="@tools:sample/lorem"
+			android:textStyle="bold"
+			android:textColor="@color/light_gray"
 
-		app:layout_constraintTop_toBottomOf="@id/text_product_title"
-		app:layout_constraintStart_toStartOf="parent" />
+			app:layout_constraintTop_toBottomOf="@id/image_product"
+			/>
 
-	<RatingBar
-		android:id="@+id/rating_bar"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		style="@style/Widget.AppCompat.RatingBar.Small"
-		android:layout_marginHorizontal="8dp"
-		android:rating="3.5"
-		android:stepSize="0.5"
+		<TextView
+			android:id="@+id/text_product_title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textSize="18sp"
+			android:textStyle="bold"
+			tools:text="@tools:sample/lorem"
+			android:textColor="@color/black"
 
-		app:layout_constraintStart_toEndOf="@id/text_product_rating_rate"
-		app:layout_constraintBottom_toBottomOf="@id/text_product_rating_rate"
-		app:layout_constraintTop_toTopOf="@id/text_product_rating_rate" />
+			app:layout_constraintTop_toBottomOf="@id/text_product_category"
+			/>
 
-	<TextView
-		android:id="@+id/text_product_rating_count"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginHorizontal="8dp"
-		tools:text="123 comments"
+		<TextView
+			android:id="@+id/text_product_rating"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:gravity="center"
+			tools:text="4.6 (120 reviews)"
+			app:drawableStartCompat="@drawable/ic_star"
+			app:drawableTint="@color/amber"
+			android:background="@drawable/bg_product_rating"
+			android:backgroundTint="?attr/colorSurfaceVariant"
 
-		app:layout_constraintTop_toTopOf="@id/rating_bar"
-		app:layout_constraintBottom_toBottomOf="@id/rating_bar"
-		app:layout_constraintStart_toEndOf="@id/rating_bar"
-		/>
+			app:layout_constraintTop_toBottomOf="@id/text_product_title"
+			app:layout_constraintStart_toStartOf="parent"
+			/>
 
-	<com.google.android.material.chip.Chip
-		android:id="@+id/chip_product_category"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginHorizontal="16dp"
-		android:layout_marginVertical="8dp"
-		tools:text="Bag"
+		<TextView
+			android:id="@+id/text_product_info"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:text="@string/product_info"
+			android:textStyle="bold"
+			android:textColor="@color/black"
 
-		app:layout_constraintTop_toBottomOf="@id/text_product_rating_rate"
-		app:layout_constraintBottom_toTopOf="@id/text_product_description"
-		app:layout_constraintStart_toStartOf="parent"
-		/>
+			app:layout_constraintTop_toBottomOf="@id/text_product_rating"
+			app:layout_constraintStart_toStartOf="parent"
+			/>
 
-	<TextView
-		android:id="@+id/text_product_description"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_marginHorizontal="16dp"
-		tools:text="@tools:sample/lorem/random"
+		<TextView
+			android:id="@+id/text_product_description"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_marginTop="4dp"
+			tools:text="@tools:sample/lorem/random"
 
-		app:layout_constraintTop_toBottomOf="@id/chip_product_category"
-		app:layout_constraintBottom_toBottomOf="parent" />
+			app:layout_constraintTop_toBottomOf="@id/text_product_info"
+			app:layout_constraintBottom_toBottomOf="parent" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
 
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:id="@+id/layout_bottom"
 		android:layout_width="match_parent"
 		android:layout_height="80dp"
 		android:padding="16dp"
-		android:background="?attr/colorSurface"
+		android:visibility="invisible"
+		tools:visibility="visible"
 
 		app:layout_constraintBottom_toBottomOf="parent">
 
@@ -140,41 +142,42 @@
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintTop_toTopOf="parent" />
 
-		<com.google.android.material.button.MaterialButtonToggleGroup
-			android:id="@+id/button_group_amount"
+		<Button
+			android:id="@+id/button_decrement"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginHorizontal="8dp"
-			app:selectionRequired="false"
+			app:icon="@drawable/ic_remove"
+			style="@style/Widget.Material3.Button.IconButton.Outlined"
 
-			app:layout_constraintStart_toEndOf="@id/text_product_price"
-			app:layout_constraintEnd_toStartOf="@id/button_add_to_cart"
+			app:layout_constraintTop_toTopOf="parent"
 			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintTop_toTopOf="parent">
+			app:layout_constraintEnd_toStartOf="@id/text_amount"
+			/>
 
-			<Button
-				android:id="@+id/button_decrement"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				style="@style/Widget.App.Button.OutlinedButton.IconOnly"
-				app:icon="@drawable/ic_remove" />
+		<TextView
+			android:id="@+id/text_amount"
+			android:layout_width="24dp"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			tools:text="1"
+			android:textSize="22sp"
 
-			<Button
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				style="@style/Widget.App.Button.OutlinedButton.IconOnly"
-				tools:text="1"
-				android:clickable="false"
-				android:focusable="false" />
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toStartOf="@id/button_increment"
+			/>
 
-			<Button
-				android:id="@+id/button_increment"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				style="@style/Widget.App.Button.OutlinedButton.IconOnly"
-				app:icon="@drawable/ic_add" />
+		<Button
+			android:id="@+id/button_increment"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			app:icon="@drawable/ic_add"
+			style="@style/Widget.Material3.Button.IconButton.Outlined"
 
-		</com.google.android.material.button.MaterialButtonToggleGroup>
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toStartOf="@id/button_add_to_cart"
+			/>
 
 		<Button
 			android:id="@+id/button_add_to_cart"
@@ -183,10 +186,8 @@
 			android:text="@string/add_to_cart"
 
 			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toEndOf="@id/button_group_amount"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintTop_toTopOf="parent" />
-
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

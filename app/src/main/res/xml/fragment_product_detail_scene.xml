@@ -36,7 +36,7 @@
 		    />
 
 	    <Constraint
-		    android:id="@+id/text_product_rating_rate"
+		    android:id="@+id/text_product_rating"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 
