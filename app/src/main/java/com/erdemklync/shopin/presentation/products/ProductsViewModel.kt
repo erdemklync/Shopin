@@ -6,7 +6,6 @@ import com.erdemklync.shopin.data.remote.entity.Product
 import com.erdemklync.shopin.domain.use_cases.product.ProductUseCases
 import com.erdemklync.shopin.util.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -25,7 +24,6 @@ class ProductsViewModel @Inject constructor(
     }
 
     private fun getProducts() = viewModelScope.launch {
-        delay(5000)
         productUseCases.getProducts().let { dataState ->
             _state.value = dataState
         }

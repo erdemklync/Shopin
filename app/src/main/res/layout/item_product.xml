@@ -34,21 +34,23 @@
 			tools:text="Product Name"
 			android:textSize="12sp"
 			android:textColor="@color/white"
-			android:lines="2"
+			android:maxLines="2"
 			android:ellipsize="end"
 
 			app:layout_constraintBottom_toTopOf="@id/text_product_price"
 			app:layout_constraintStart_toStartOf="parent"
 			/>
 
-		<TextView
+		<com.google.android.material.chip.Chip
 			android:id="@+id/text_product_price"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			app:chipCornerRadius="24dp"
+			app:chipStrokeWidth="0dp"
 			tools:text="129,90 ₺"
 			android:textStyle="bold"
-			android:textSize="20sp"
-			android:textColor="@color/white"
+			android:textSize="16sp"
+			android:textColor="?attr/colorOnSurface"
 
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
