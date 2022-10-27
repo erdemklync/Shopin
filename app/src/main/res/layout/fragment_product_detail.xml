@@ -1,20 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
 	tools:context=".presentation.product_detail.ProductDetailFragment">
+
+	<com.google.android.material.appbar.MaterialToolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:navigationIcon="@drawable/ic_back"
+		app:titleTextAppearance="@style/App.Shopin.TitleTextAppearance"
+		app:layout_scrollFlags="scroll|enterAlways"
+
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<com.google.android.material.progressindicator.CircularProgressIndicator
+		android:id="@+id/loading_indicator"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:visibility="visible"
+		android:indeterminate="true"
+
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<androidx.constraintlayout.widget.Group
+		android:id="@+id/content_detail"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:visibility="invisible"
+		tools:visibility="visible"
+		app:constraint_referenced_ids="image_product,rating_bar, text_product_rating_count, text_product_rating_rate, text_product_title,text_product_description,layout_bottom" />
+
+	<ImageView
+		android:id="@+id/image_product"
+		android:layout_width="0dp"
+		android:layout_height="250dp"
+		tools:src="@drawable/img"
+		android:contentDescription="@string/content_description_product_image"
+
+		app:layout_constraintTop_toBottomOf="@id/toolbar"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent" />
 
 	<TextView
 		android:id="@+id/text_product_title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="16dp"
+		android:textSize="18sp"
+		android:textStyle="bold"
+		tools:text="@tools:sample/lorem"
+
+		app:layout_constraintTop_toBottomOf="@id/image_product" />
+
+	<TextView
+		android:id="@+id/text_product_rating_rate"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginStart="16dp"
+		tools:text="3.5"
 
-		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/text_product_title"
+		app:layout_constraintStart_toStartOf="parent" />
+
+	<RatingBar
+		android:id="@+id/rating_bar"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		style="@style/Widget.AppCompat.RatingBar.Small"
+		android:layout_marginHorizontal="8dp"
+		android:rating="3.5"
+		android:stepSize="0.5"
+
+		app:layout_constraintStart_toEndOf="@id/text_product_rating_rate"
+		app:layout_constraintBottom_toBottomOf="@id/text_product_rating_rate"
+		app:layout_constraintTop_toTopOf="@id/text_product_rating_rate" />
+
+	<TextView
+		android:id="@+id/text_product_rating_count"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="8dp"
+		tools:text="123 comments"
+
+		app:layout_constraintTop_toTopOf="@id/rating_bar"
+		app:layout_constraintBottom_toBottomOf="@id/rating_bar"
+		app:layout_constraintStart_toEndOf="@id/rating_bar"
 		/>
 
+	<com.google.android.material.chip.Chip
+		android:id="@+id/chip_product_category"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="16dp"
+		android:layout_marginVertical="8dp"
+		tools:text="Bag"
+
+		app:layout_constraintTop_toBottomOf="@id/text_product_rating_rate"
+		app:layout_constraintBottom_toTopOf="@id/text_product_description"
+		app:layout_constraintStart_toStartOf="parent"
+		/>
+
+	<TextView
+		android:id="@+id/text_product_description"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_marginHorizontal="16dp"
+		tools:text="@tools:sample/lorem/random"
+
+		app:layout_constraintTop_toBottomOf="@id/chip_product_category"
+		app:layout_constraintBottom_toBottomOf="parent" />
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/layout_bottom"
+		android:layout_width="match_parent"
+		android:layout_height="80dp"
+		android:padding="16dp"
+		android:background="?attr/colorSurface"
+
+		app:layout_constraintBottom_toBottomOf="parent">
+
+		<TextView
+			android:id="@+id/text_product_price"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:textSize="24sp"
+			android:textStyle="bold"
+			android:textColor="@color/brand_color_primary"
+			tools:text="129,90 ₺"
+			android:includeFontPadding="false"
+
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<com.google.android.material.button.MaterialButtonToggleGroup
+			android:id="@+id/button_group_amount"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="8dp"
+			app:selectionRequired="false"
+
+			app:layout_constraintStart_toEndOf="@id/text_product_price"
+			app:layout_constraintEnd_toStartOf="@id/button_add_to_cart"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintTop_toTopOf="parent">
+
+			<Button
+				android:id="@+id/button_decrement"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+				app:icon="@drawable/ic_remove" />
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+				tools:text="1"
+				android:clickable="false"
+				android:focusable="false" />
+
+			<Button
+				android:id="@+id/button_increment"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+				app:icon="@drawable/ic_add" />
+
+		</com.google.android.material.button.MaterialButtonToggleGroup>
+
+		<Button
+			android:id="@+id/button_add_to_cart"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/add_to_cart"
+
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@id/button_group_amount"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
