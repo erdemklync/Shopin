@@ -1,5 +1,6 @@
-package com.erdemklync.shopin.presentation.products
+package com.erdemklync.shopin.presentation.product_detail
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.erdemklync.shopin.data.remote.entity.Product
@@ -12,19 +13,22 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProductsViewModel @Inject constructor(
-    private val productUseCases: ProductUseCases
+class ProductDetailViewModel @Inject constructor(
+    private val productUseCases: ProductUseCases,
+    savedStateHandle: SavedStateHandle
 ): ViewModel() {
 
-    private val _state = MutableStateFlow<DataState<List<Product>>>(DataState.Loading())
+    private val _state = MutableStateFlow<DataState<Product>>(DataState.Loading())
     val state get() = _state.asStateFlow()
 
     init {
-        getProducts()
+        savedStateHandle.get<Int>("productId")?.let { productId ->
+            getProductById(productId)
+        }
     }
 
-    private fun getProducts() = viewModelScope.launch {
-        productUseCases.getProducts().let { dataState ->
+    private fun getProductById(id: Int) = viewModelScope.launch {
+        productUseCases.getProductById(id).let { dataState ->
             _state.value = dataState
         }
     }

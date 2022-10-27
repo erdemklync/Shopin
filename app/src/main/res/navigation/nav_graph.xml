@@ -10,5 +10,18 @@
 		android:id="@+id/productsFragment"
 		android:name="com.erdemklync.shopin.presentation.products.ProductsFragment"
 		android:label="fragment_products"
-		tools:layout="@layout/fragment_products" />
+		tools:layout="@layout/fragment_products" >
+		<action
+			android:id="@+id/action_productsFragment_to_productDetailFragment"
+			app:destination="@id/productDetailFragment" />
+	</fragment>
+	<fragment
+		android:id="@+id/productDetailFragment"
+		android:name="com.erdemklync.shopin.presentation.product_detail.ProductDetailFragment"
+		android:label="fragment_product_detail"
+		tools:layout="@layout/fragment_product_detail" >
+		<argument
+			android:name="productId"
+			app:argType="integer" />
+	</fragment>
 </navigation>

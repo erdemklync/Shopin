@@ -5,6 +5,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="200dp"
+	android:layout_margin="8dp"
 	app:cardCornerRadius="12dp">
 
 	<ImageView
@@ -23,46 +24,36 @@
 
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="match_parent"
+		android:padding="12dp">
 
 		<TextView
 			android:id="@+id/text_product_title"
-			android:layout_width="wrap_content"
+			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:layout_marginStart="12dp"
 			tools:text="Product Name"
 			android:textSize="12sp"
 			android:textColor="@color/white"
+			android:maxLines="2"
+			android:ellipsize="end"
 
 			app:layout_constraintBottom_toTopOf="@id/text_product_price"
 			app:layout_constraintStart_toStartOf="parent"
 			/>
 
-		<TextView
+		<com.google.android.material.chip.Chip
 			android:id="@+id/text_product_price"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginStart="12dp"
+			app:chipCornerRadius="24dp"
+			app:chipStrokeWidth="0dp"
 			tools:text="129,90 ₺"
 			android:textStyle="bold"
-			android:textSize="20sp"
-			android:textColor="@color/white"
-
-			app:layout_constraintTop_toTopOf="@id/button_add_to_basket"
-			app:layout_constraintBottom_toBottomOf="@id/button_add_to_basket"
-			app:layout_constraintStart_toStartOf="parent"
-			/>
-
-		<Button
-			android:id="@+id/button_add_to_basket"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			app:icon="@drawable/ic_shopping_cart"
-			android:contentDescription="@string/content_description_basket"
-			style="@style/Widget.Shopin.AddToBasketButton"
+			android:textSize="16sp"
+			android:textColor="?attr/colorOnSurface"
 
 			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
 			/>
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
