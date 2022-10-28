@@ -10,8 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.erdemklync.shopin.databinding.FragmentProductDetailBinding
 import com.erdemklync.shopin.util.DataState
+import com.erdemklync.shopin.util.setProductImage
+import com.erdemklync.shopin.util.setProductPrice
+import com.erdemklync.shopin.util.setProductRating
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -36,16 +40,49 @@ class ProductDetailFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collect { state ->
-                    when(state) {
+                    when(val dataState = state.dataState) {
                         is DataState.Loading -> {}
                         is DataState.Error -> {
-                            Toast.makeText(requireContext(), state.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(requireContext(), dataState.message, Toast.LENGTH_LONG).show()
                         }
                         is DataState.Success -> {
-                            binding.textProductTitle.text = state.data.title
+                            with(binding) {
+                                dataState.data.let { product ->
+                                    imageProduct setProductImage product.image
+                                    textProductRating setProductRating product.rating
+                                    textProductPrice setProductPrice product.price
+                                    textProductTitle.text = product.title
+                                    textProductDescription.text = product.description
+                                    textProductCategory.text = product.category
+                                }
+
+                                textAmount.text = state.amount.toString()
+
+                                loadingIndicator.visibility =  View.GONE
+                                contentDetail.visibility =  View.VISIBLE
+                                layoutBottom.visibility = View.VISIBLE
+
+                                buttonDecrement.setOnClickListener {
+                                    viewModel.decrementAmount()
+                                }
+
+                                buttonIncrement.setOnClickListener {
+                                    viewModel.incrementAmount()
+                                }
+
+                                buttonAddToCart.setOnClickListener {
+                                    viewModel.addToCart()
+                                }
+                            }
                         }
                     }
                 }
+            }
+        }
+
+        with(binding) {
+            toolbar.setNavigationOnClickListener {
+                findNavController().popBackStack()
             }
         }
     }

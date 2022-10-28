@@ -1,12 +1,15 @@
 package com.erdemklync.shopin.util
 
+import android.text.SpannableStringBuilder
 import android.widget.ImageView
-import android.widget.RatingBar
 import android.widget.TextView
+import androidx.core.text.bold
 import com.bumptech.glide.Glide
+import com.erdemklync.shopin.data.remote.entity.Rating
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.util.*
+
 
 infix fun ImageView.setProductImage(imageUrl: String) {
     Glide.with(this).load(imageUrl).into(this)
@@ -19,10 +22,9 @@ infix fun TextView.setProductPrice(price: Double) {
     }
 }
 
-infix fun RatingBar.setProductRatingRate(rate: Double) {
-    this.rating = rate.toFloat()
-}
-
-infix fun TextView.setProductRatingCount(count: Int) {
-    this.text = count.toString().plus(" comments")
+infix fun TextView.setProductRating(rating: Rating) {
+    this.text = SpannableStringBuilder()
+        .bold {
+            append(rating.rate.toString())
+        }.append(" (${rating.count} reviews)")
 }

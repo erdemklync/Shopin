@@ -7,12 +7,4 @@
 		<item name="fontFamily">@font/open_sans_extra_bold_italic</item>
 		<item name="android:letterSpacing">-0.1</item>
 	</style>
-	<style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.Material3.Button.OutlinedButton">
-		<item name="iconPadding">0dp</item>
-		<item name="android:minWidth">24dp</item>
-		<item name="android:minHeight">48dp</item>
-		<item name="android:paddingStart">12dp</item>
-		<item name="android:paddingEnd">12dp</item>
-	</style>
-
 </resources>
