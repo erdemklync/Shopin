@@ -3,6 +3,7 @@
 		<item name="colorPrimary">@color/brand_color_primary</item>
 		<item name="colorSecondary">@color/brand_color_secondary</item>
 		<item name="colorTertiary">@color/brand_color_tertiary</item>
+		<item name="android:colorBackground">@color/white</item>
 
 		<item name="android:navigationBarColor">@android:color/transparent</item>
 		<item name="android:statusBarColor">@android:color/transparent</item>
