@@ -15,7 +15,19 @@
 		app:titleTextAppearance="@style/App.Shopin.TitleTextAppearance"
 		app:layout_scrollFlags="scroll|enterAlways"
 
-		app:layout_constraintTop_toTopOf="parent" />
+		app:layout_constraintTop_toTopOf="parent">
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="end"
+			app:icon="@drawable/ic_favorite"
+			app:iconTint="@color/light_gray"
+			style="@style/Widget.Material3.Button.IconButton"
+
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			/>
+	</com.google.android.material.appbar.MaterialToolbar>
 
 	<com.google.android.material.progressindicator.CircularProgressIndicator
 		android:id="@+id/loading_indicator"
@@ -35,6 +47,7 @@
 		android:layout_height="0dp"
 		android:paddingHorizontal="24dp"
 		android:visibility="invisible"
+		tools:visibility="visible"
 
 		app:layout_constraintTop_toBottomOf="@id/toolbar"
 		app:layout_constraintBottom_toBottomOf="parent"
@@ -156,7 +169,7 @@
 
 		<TextView
 			android:id="@+id/text_amount"
-			android:layout_width="24dp"
+			android:layout_width="32dp"
 			android:layout_height="wrap_content"
 			android:gravity="center"
 			tools:text="1"

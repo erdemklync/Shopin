@@ -37,10 +37,12 @@ class ProductDetailViewModel @Inject constructor(
     }
 
     fun incrementAmount() {
-        _state.update {
-            it.copy(
-                amount = it.amount + 1
-            )
+        if(state.value.amount < 99) {
+            _state.update {
+                it.copy(
+                    amount = it.amount + 1
+                )
+            }
         }
     }
 
