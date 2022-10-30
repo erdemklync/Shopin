@@ -1,11 +1,10 @@
 package com.erdemklync.shopin.presentation.search
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -15,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.erdemklync.shopin.databinding.FragmentSearchBinding
 import com.erdemklync.shopin.presentation.products.ProductAdapter
-import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -26,6 +24,10 @@ class SearchFragment : Fragment() {
 
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
+
+    private val categoryAdapter = ChipAdapter { category ->
+        viewModel.selectFilter(category)
+    }
 
     private val productAdapter = ProductAdapter { product ->
         val action = SearchFragmentDirections.actionSearchFragmentToProductDetailFragment(product.id)
@@ -48,16 +50,14 @@ class SearchFragment : Fragment() {
                 launch {
                     viewModel.filteredList.collect { filteredList ->
                         productAdapter.submitList(filteredList).also {
-                            binding.recyclerViewSearch.smoothScrollToPosition(0)
+                            binding.recyclerViewProducts.smoothScrollToPosition(0)
                         }
                     }
                 }
                 launch {
                     viewModel.state.collect { state ->
-                        state.categories.forEach { category ->
-                            val chip = Chip(requireContext())
-                            chip.text = category
-                            binding.chipGroup.addView(chip)
+                        categoryAdapter.submitList(state.categories).also {
+                            binding.recyclerViewProducts.smoothScrollToPosition(0)
                         }
                     }
                 }
@@ -65,29 +65,27 @@ class SearchFragment : Fragment() {
         }
 
         with(binding) {
-            editTextSearch.addTextChangedListener(
-                object : TextWatcher {
-                    override fun beforeTextChanged(
-                        s: CharSequence?,
-                        start: Int,
-                        count: Int,
-                        after: Int,
-                    ) {}
+            searchView.setOnQueryTextListener(
+                object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String?): Boolean {
+                        return false
+                    }
 
-                    override fun onTextChanged(
-                        s: CharSequence?,
-                        start: Int,
-                        before: Int,
-                        count: Int,
-                    ) {}
+                    override fun onQueryTextChange(newText: String?): Boolean {
+                        newText?.let { query ->
+                            viewModel.setQuery(query)
+                        }
 
-                    override fun afterTextChanged(s: Editable?) {
-                        viewModel.setQuery(s.toString())
+                        return false
                     }
                 }
             )
 
-            recyclerViewSearch.apply {
+            recyclerViewCategories.apply {
+                layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                adapter = categoryAdapter
+            }
+            recyclerViewProducts.apply {
                 layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
                 adapter = productAdapter
             }

@@ -19,6 +19,9 @@ class SearchViewModel @Inject constructor(
 
     private val _state = MutableStateFlow(SearchDataState())
     val state get() = _state.asStateFlow()
+
+    //private val selectedCategories = MutableStateFlow<List<String>>(emptyList())
+
     val filteredList
         get() = _state.map {
             if(it.query.length > 2) {
@@ -27,6 +30,12 @@ class SearchViewModel @Inject constructor(
                 }
             } else {
                 it.products
+            }.filter { product ->
+                if(it.selectedCategories.isNotEmpty()) {
+                    product.category in it.selectedCategories
+                } else {
+                    true
+                }
             }
         }
 
@@ -54,11 +63,11 @@ class SearchViewModel @Inject constructor(
     private fun getCategories() = viewModelScope.launch {
         productUseCases.getCategories().let { dataState ->
             if(dataState is DataState.Success) {
-                _state.update {
-                    it.copy(
-                        categories = dataState.data
-                    )
-                }
+               _state.update {
+                   it.copy(
+                       categories = dataState.data
+                   )
+               }
             }
         }
     }
@@ -72,17 +81,17 @@ class SearchViewModel @Inject constructor(
     }
 
     fun selectFilter(filter: String) {
-        val selectedCategories = state.value.selectedCategories.toMutableSet()
+        val _selectedCategories = _state.value.selectedCategories.toMutableList()
 
-        if(selectedCategories.contains(filter)) {
-            selectedCategories.remove(filter)
+        if(_selectedCategories.contains(filter)) {
+            _selectedCategories.remove(filter)
         } else {
-            selectedCategories.add(filter)
+            _selectedCategories.add(filter)
         }
 
         _state.update {
             it.copy(
-                selectedCategories = selectedCategories
+                selectedCategories = _selectedCategories
             )
         }
     }

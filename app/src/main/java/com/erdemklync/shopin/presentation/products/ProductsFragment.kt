@@ -25,7 +25,7 @@ class ProductsFragment : Fragment() {
     private var _binding: FragmentProductsBinding? = null
     private val binding get() = _binding!!
 
-    private val productsAdapter = ProductsAdapter { product ->
+    private val productAdapter = ProductAdapter { product ->
         val action = ProductsFragmentDirections.actionProductsFragmentToProductDetailFragment(product.id)
         findNavController().navigate(action)
     }
@@ -39,7 +39,7 @@ class ProductsFragment : Fragment() {
         with(binding) {
             recyclerViewProducts.apply {
                 layoutManager = GridLayoutManager(requireContext(), 2)
-                adapter = productsAdapter
+                adapter = productAdapter
             }
         }
         return binding.root
@@ -58,7 +58,7 @@ class ProductsFragment : Fragment() {
                         is DataState.Success -> {
                             binding.loadingIndicator.visibility = View.GONE
                             binding.recyclerViewProducts.visibility = View.VISIBLE
-                            productsAdapter.submitList(state.data)
+                            productAdapter.submitList(state.data)
                         }
                     }
                 }
