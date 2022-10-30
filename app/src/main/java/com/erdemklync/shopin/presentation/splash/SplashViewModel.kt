@@ -2,25 +2,31 @@ package com.erdemklync.shopin.presentation.splash
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.delay
+import com.erdemklync.shopin.data.local.DataStoreManager
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-sealed class SplashViewState {
-    object Loading: SplashViewState()
-    object ToMainFragment: SplashViewState()
-}
+@HiltViewModel
+class SplashViewModel @Inject constructor(
+    private val dataStoreManager: DataStoreManager,
+): ViewModel() {
 
-class SplashViewModel: ViewModel() {
-
-    private val _viewState = MutableStateFlow<SplashViewState>(SplashViewState.Loading)
+    private val _viewState = MutableStateFlow<SplashViewEvent>(SplashViewEvent.Loading)
     val viewState get() = _viewState.asSharedFlow()
 
     init {
         viewModelScope.launch {
-            delay(3000)
-            _viewState.value = SplashViewState.ToMainFragment
+            dataStoreManager.getFirstTime.collectLatest { isFirstTime ->
+                _viewState.value = if(isFirstTime) {
+                    SplashViewEvent.ToOnBoardingFragment
+                } else {
+                    SplashViewEvent.ToMainFragment
+                }
+            }
         }
     }
 }

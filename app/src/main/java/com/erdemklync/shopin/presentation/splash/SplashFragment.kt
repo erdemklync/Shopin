@@ -23,10 +23,13 @@ class SplashFragment: Fragment(R.layout.fragment_splash) {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.viewState.collectLatest { viewState ->
                     when(viewState) {
-                        SplashViewState.Loading -> {
+                        SplashViewEvent.Loading -> {
 
                         }
-                        SplashViewState.ToMainFragment -> {
+                        SplashViewEvent.ToOnBoardingFragment -> {
+
+                        }
+                        SplashViewEvent.ToMainFragment -> {
                             val action = SplashFragmentDirections.actionSplashFragmentToProductsFragment()
                             findNavController().navigate(action)
                         }
