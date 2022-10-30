@@ -5,12 +5,8 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:animateLayoutChanges="true"
 	tools:context=".presentation.products.ProductsFragment">
-
-	<include
-		android:id="@+id/toolbar"
-		layout="@layout/toolbar_main"
-		app:layout_constraintTop_toTopOf="parent" />
 
 	<com.google.android.material.progressindicator.CircularProgressIndicator
 		android:id="@+id/loading_indicator"
@@ -33,7 +29,7 @@
 		tools:listitem="@layout/item_product"
 		android:visibility="gone"
 
-		app:layout_constraintTop_toBottomOf="@id/toolbar"
+		app:layout_constraintTop_toTopOf="parent"
 		app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
