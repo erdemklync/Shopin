@@ -6,19 +6,28 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:animateLayoutChanges="true"
-	tools:context=".presentation.products.ProductsFragment">
+	tools:context=".presentation.search.SearchFragment">
 
-	<com.google.android.material.progressindicator.CircularProgressIndicator
-		android:id="@+id/loading_indicator"
-		android:layout_width="wrap_content"
+	<androidx.appcompat.widget.SearchView
+		android:id="@+id/search_view"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:visibility="visible"
-		android:indeterminate="true"
+		android:queryBackground="@null"
 
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
+		app:layout_constraintTop_toTopOf="parent"/>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/recycler_view_categories"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingHorizontal="12dp"
+		android:clipToPadding="false"
+		tools:listitem="@layout/item_category"
+		tools:itemCount="4"
+
+		app:layout_constraintTop_toBottomOf="@id/search_view"
+		/>
+
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/recycler_view_products"
@@ -27,9 +36,8 @@
 		android:padding="8dp"
 		android:clipToPadding="false"
 		tools:listitem="@layout/item_product"
-		android:visibility="gone"
 
-		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/recycler_view_categories"
 		app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

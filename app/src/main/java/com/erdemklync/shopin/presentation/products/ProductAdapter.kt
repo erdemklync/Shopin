@@ -10,9 +10,9 @@ import com.erdemklync.shopin.databinding.ItemProductBinding
 import com.erdemklync.shopin.util.setProductImage
 import com.erdemklync.shopin.util.setProductPrice
 
-class ProductsAdapter(
+class ProductAdapter(
     private val onClick:(Product) -> Unit,
-) : ListAdapter<Product, ProductsAdapter.ProductsViewHolder>(ProductsDiffUtil()) {
+) : ListAdapter<Product, ProductAdapter.ProductsViewHolder>(ProductsDiffUtil()) {
 
     class ProductsViewHolder(
         private val binding: ItemProductBinding

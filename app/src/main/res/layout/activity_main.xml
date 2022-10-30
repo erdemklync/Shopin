@@ -5,8 +5,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-	android:fitsSystemWindows="false"
+	android:animateLayoutChanges="true"
     tools:context=".MainActivity">
+
+	<com.google.android.material.appbar.MaterialToolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="?attr/actionBarSize"
+		app:title="@string/app_name"
+		app:titleTextAppearance="@style/App.Shopin.TitleTextAppearance"
+
+		app:layout_constraintTop_toTopOf="parent">
+
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="end"
+			android:layout_marginEnd="16dp"
+			tools:text="0.00 ₺"
+			app:icon="@drawable/ic_shopping_basket"
+			app:iconPadding="8dp"
+			style="@style/Widget.Material3.Button.IconButton.Outlined"
+
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			/>
+
+	</com.google.android.material.appbar.MaterialToolbar>
 
 	<androidx.fragment.app.FragmentContainerView
 		android:id="@+id/nav_host_fragment"
@@ -16,7 +42,7 @@
 		app:defaultNavHost="true"
 		app:navGraph="@navigation/nav_graph"
 
-		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/toolbar"
 		app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
 		/>
 

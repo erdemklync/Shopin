@@ -29,7 +29,8 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.bottomNavigationView.visibility = shouldShowBottomNavigationView(destination.id)
+            binding.bottomNavigationView.visibility = shouldShowBars(destination.id)
+            binding.toolbar.visibility = shouldShowBars(destination.id)
         }
     }
 
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         R.id.productDetailFragment,
     )
 
-    private fun shouldShowBottomNavigationView(destinationId: Int): Int {
+    private fun shouldShowBars(destinationId: Int): Int {
         if(destinationId in fragmentsWithoutNavigation) {
             return View.GONE
         }
