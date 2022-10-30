@@ -4,7 +4,7 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/nav_graph"
-	app:startDestination="@id/productsFragment">
+	app:startDestination="@id/splashFragment">
 
 	<fragment
 		android:id="@+id/productsFragment"
@@ -32,5 +32,16 @@
 		<action
 			android:id="@+id/action_searchFragment_to_productDetailFragment"
 			app:destination="@id/productDetailFragment" />
+	</fragment>
+	<fragment
+		android:id="@+id/splashFragment"
+		android:name="com.erdemklync.shopin.presentation.splash.SplashFragment"
+		android:label="SplashFragment"
+		tools:layout="@layout/fragment_splash">
+		<action
+			android:id="@+id/action_splashFragment_to_productsFragment"
+			app:destination="@id/productsFragment"
+			app:popUpTo="@id/splashFragment"
+			app:popUpToInclusive="true"/>
 	</fragment>
 </navigation>

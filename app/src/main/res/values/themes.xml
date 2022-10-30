@@ -10,5 +10,17 @@
 		<item name="android:windowLightStatusBar" tools:targetApi="m">?attr/isLightTheme</item>
 	</style>
 
-	<style name="Theme.Shopin" parent="Base.Theme.Shopin" />
+	<style name="Theme.Shopin.Splash" parent="Theme.SplashScreen">
+		<item name="android:navigationBarColor">@color/brand_color_primary</item>
+		<item name="android:statusBarColor">@color/brand_color_primary</item>
+		<item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+		<item name="windowSplashScreenBackground">@color/brand_color_primary</item>
+		<item name="postSplashScreenTheme">@style/Theme.Shopin</item>
+	</style>
+
+	<style name="Theme.Shopin" parent="Base.Theme.Shopin">
+		<item name="android:navigationBarColor">@android:color/transparent</item>
+		<item name="android:statusBarColor">@android:color/transparent</item>
+		<item name="android:windowLightStatusBar" tools:targetApi="m">?attr/isLightTheme</item>
+	</style>
 </resources>
