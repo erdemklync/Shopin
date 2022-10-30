@@ -13,7 +13,7 @@ class GetProductById @Inject constructor(
             DataState.Success(
                 data = productRepository.getProductById(id)
             )
-        }catch (e: Exception){
+        } catch (e: Exception){
             e.printStackTrace()
             DataState.Error(e.toString())
         }
