@@ -24,7 +24,7 @@ class DataStoreManager(context: Context) {
     }
 
     val getFirstTime: Flow<Boolean> = dataStore.data.map { preferences ->
-        preferences[FIRST_TIME] ?: false
+        preferences[FIRST_TIME] ?: true
     }
 
 }

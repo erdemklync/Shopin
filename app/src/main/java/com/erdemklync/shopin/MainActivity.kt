@@ -1,10 +1,9 @@
 package com.erdemklync.shopin
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.erdemklync.shopin.databinding.ActivityMainBinding
@@ -17,7 +16,7 @@ class MainActivity: AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
+        setTheme(R.style.Theme_Shopin)
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -33,28 +32,22 @@ class MainActivity: AppCompatActivity() {
         binding.bottomNavigationView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.bottomNavigationView.visibility = shouldShowBars(destination.id)
-            binding.toolbar.visibility = shouldShowBars(destination.id)
+            binding.bottomNavigationView.isVisible = destination.id !in fragmentsWithoutNavigation
+            binding.toolbar.isVisible = destination.id !in fragmentsWithoutNavigation
 
             setSystemBarsColor(destination.id)
         }
     }
 
     private val fragmentsWithoutNavigation = listOf(
+        R.id.onBoardingFragment,
         R.id.splashFragment,
         R.id.productDetailFragment,
     )
 
-    private fun shouldShowBars(destinationId: Int): Int {
-        if(destinationId in fragmentsWithoutNavigation) {
-            return View.GONE
-        }
-        return View.VISIBLE
-    }
-
     private fun setSystemBarsColor(destinationId: Int) {
         when(destinationId) {
-            R.id.splashFragment -> {
+            R.id.splashFragment, R.id.onBoardingFragment -> {
                 window.navigationBarColor = ContextCompat.getColor(this, R.color.brand_color_primary)
                 window.statusBarColor = ContextCompat.getColor(this, R.color.brand_color_primary)
             }

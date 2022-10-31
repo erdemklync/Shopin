@@ -15,6 +15,6 @@ object LocalDataModule {
 
     @Singleton
     @Provides
-    fun provideDataStoreManager(@ApplicationContext appContext: Context): DataStoreManager =
-        DataStoreManager(appContext)
+    fun provideDataStoreManager(@ApplicationContext context: Context): DataStoreManager =
+        DataStoreManager(context)
 }

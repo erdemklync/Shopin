@@ -9,9 +9,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.erdemklync.shopin.R
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SplashFragment: Fragment(R.layout.fragment_splash) {
 
     private val viewModel: SplashViewModel by viewModels()
@@ -27,7 +29,8 @@ class SplashFragment: Fragment(R.layout.fragment_splash) {
 
                         }
                         SplashViewEvent.ToOnBoardingFragment -> {
-
+                            val action = SplashFragmentDirections.actionSplashFragmentToOnBoardingFragment()
+                            findNavController().navigate(action)
                         }
                         SplashViewEvent.ToMainFragment -> {
                             val action = SplashFragmentDirections.actionSplashFragmentToProductsFragment()
