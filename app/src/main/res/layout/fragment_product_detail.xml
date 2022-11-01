@@ -148,7 +148,7 @@
 			android:layout_height="wrap_content"
 			android:textSize="24sp"
 			android:textStyle="bold"
-			android:textColor="@color/brand_color_primary"
+			android:textColor="?attr/colorPrimary"
 			tools:text="129,90 ₺"
 			android:includeFontPadding="false"
 

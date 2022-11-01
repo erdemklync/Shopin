@@ -6,7 +6,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:animateLayoutChanges="true"
-	android:background="@color/brand_color_primary"
+	android:background="?attr/colorPrimary"
 	tools:context=".presentation.on_boarding.OnBoardingFragment">
 
 	<Button
