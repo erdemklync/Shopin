@@ -2,7 +2,6 @@ package com.erdemklync.shopin
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -16,7 +15,6 @@ class MainActivity: AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.Theme_Shopin)
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -40,17 +38,15 @@ class MainActivity: AppCompatActivity() {
     }
 
     private val fragmentsWithoutNavigation = listOf(
-        R.id.onBoardingFragment,
         R.id.splashFragment,
+        R.id.onBoardingFragment,
+        R.id.authFragment,
         R.id.productDetailFragment,
     )
 
     private fun setSystemBarsColor(destinationId: Int) {
         when(destinationId) {
-            R.id.splashFragment, R.id.onBoardingFragment -> {
-                window.navigationBarColor = ContextCompat.getColor(this, R.color.brand_color_primary)
-                window.statusBarColor = ContextCompat.getColor(this, R.color.brand_color_primary)
-            }
+            R.id.splashFragment, R.id.onBoardingFragment -> {}
             else -> {
                 val surfaceColorAtElevation = SurfaceColors.SURFACE_2.getColor(this)
                 val surfaceColor = SurfaceColors.SURFACE_0.getColor(this)

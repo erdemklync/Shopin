@@ -1,0 +1,118 @@
+package com.erdemklync.shopin.presentation.sign_up
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.erdemklync.shopin.presentation.auth.AuthState
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+
+class SignUpViewModel : ViewModel() {
+
+    private val _state = MutableStateFlow(SignUpDataState())
+    val state get() = _state.asStateFlow()
+
+    private var auth: FirebaseAuth = Firebase.auth
+
+    private val isRegistrationValid: String?
+        get() {
+            state.value.let {
+                if (it.username.isBlank() || it.email.isBlank() ||
+                    it.password.isBlank() || it.passwordAgain.isBlank()) {
+                    return "Please fill all fields"
+                } else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(it.email).matches()) {
+                    return "Please enter a valid email address"
+                } else if(it.password.length < 6) {
+                    return "Password must be at least 6 characters"
+                } else if(it.password != it.passwordAgain) {
+                    return "Passwords do not match"
+                }
+
+                return null
+            }
+        }
+
+    fun signUp() = viewModelScope.launch {
+        state.value.let {
+            isRegistrationValid?.let { errorMessage ->
+                _state.update {
+                    it.copy(
+                        authState = AuthState.Error(errorMessage)
+                    )
+                }
+            } ?: kotlin.run {
+                _state.update {
+                    it.copy(
+                        isLoading = true
+                    )
+                }
+                auth.createUserWithEmailAndPassword(
+                    it.email,
+                    it.password,
+                ).addOnSuccessListener { result ->
+                    result.user?.let { user ->
+                        val userWithUsername = UserProfileChangeRequest
+                            .Builder()
+                            .setDisplayName(it.username)
+                            .build()
+
+                        try {
+                            user.updateProfile(userWithUsername)
+                        } catch (e: Exception) {
+                            _state.update {
+                                it.copy(
+                                    authState = AuthState.Error(e.message.toString()),
+                                    isLoading = false
+                                )
+                            }
+                        }
+                    }
+
+                    _state.update {
+                        it.copy(
+                            authState = AuthState.Success,
+                            isLoading = false
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    fun setUsername(username: String) {
+        _state.update {
+            it.copy(
+                username = username
+            )
+        }
+    }
+
+    fun setEmail(email: String) {
+        _state.update {
+            it.copy(
+                email = email
+            )
+        }
+    }
+
+    fun setPassword(password: String) {
+        _state.update {
+            it.copy(
+                password = password
+            )
+        }
+    }
+
+    fun setPasswordAgain(password: String) {
+        _state.update {
+            it.copy(
+                passwordAgain = password
+            )
+        }
+    }
+}

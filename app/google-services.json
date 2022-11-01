@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "186218048862",
+    "project_id": "shopin-a63f6",
+    "storage_bucket": "shopin-a63f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186218048862:android:1ebe1b63c003dfd8b3b3cf",
+        "android_client_info": {
+          "package_name": "com.erdemklync.shopin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186218048862-kb7ajfmtarqhls4ig26jvvhk28cufqf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmrnnbfqIM_OQtCMBd_APmFLvgISeOynI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186218048862-kb7ajfmtarqhls4ig26jvvhk28cufqf0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
