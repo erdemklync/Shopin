@@ -13,9 +13,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.erdemklync.shopin.R
 import com.erdemklync.shopin.databinding.FragmentSignUpBinding
+import com.erdemklync.shopin.presentation.auth.AuthFragment
 import com.erdemklync.shopin.presentation.auth.AuthProgressDialog
 import com.erdemklync.shopin.presentation.auth.AuthState
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SignUpFragment: Fragment(R.layout.fragment_sign_up) {
@@ -49,12 +51,18 @@ class SignUpFragment: Fragment(R.layout.fragment_sign_up) {
 
                     when(val uiState = state.authState) {
                         AuthState.Success -> {
-                            AlertDialog
-                                .Builder(requireContext())
-                                .setIcon(R.drawable.ic_check)
-                                .setTitle("Kayıt başarılı!")
-                                .setMessage("Giriş sayfasına yönlendiriliyorsunuz.")
-                                .show()
+                            lifecycleScope.launch {
+                                val alertDialog = AlertDialog
+                                    .Builder(requireContext())
+                                    .setIcon(R.drawable.ic_check)
+                                    .setTitle("Kayıt başarılı!")
+                                    .setMessage("Giriş sayfasına yönlendiriliyorsunuz.")
+                                    .setCancelable(false)
+                                    .show()
+                                delay(4000)
+                                alertDialog.cancel()
+                                (parentFragment as AuthFragment).openSignInTab()
+                            }
                         }
                         is AuthState.Error -> {
                             Snackbar.make(binding.root, uiState.error, Snackbar.LENGTH_LONG).show()

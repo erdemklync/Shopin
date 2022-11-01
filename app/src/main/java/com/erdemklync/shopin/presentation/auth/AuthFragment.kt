@@ -47,6 +47,11 @@ class AuthFragment: Fragment() {
         findNavController().navigate(action)
     }
 
+    fun openSignInTab() {
+        val signInTab = binding.tabLayout.getTabAt(0)
+        binding.tabLayout.selectTab(signInTab)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

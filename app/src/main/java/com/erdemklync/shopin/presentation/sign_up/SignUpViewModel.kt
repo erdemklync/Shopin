@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class SignUpViewModel : ViewModel() {
+class SignUpViewModel() : ViewModel() {
 
     private val _state = MutableStateFlow(SignUpDataState())
     val state get() = _state.asStateFlow()
@@ -81,6 +81,17 @@ class SignUpViewModel : ViewModel() {
                     }
                 }
             }
+        }
+    }
+
+    fun clear() {
+        _state.update {
+            it.copy(
+                username = "",
+                email = "",
+                password = "",
+                passwordAgain = ""
+            )
         }
     }
 
