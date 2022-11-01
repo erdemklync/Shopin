@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
     id 'com.google.dagger.hilt.android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -46,7 +47,7 @@ dependencies {
     // Core
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.8.0-alpha02'
+    implementation 'com.google.android.material:material:1.8.0-alpha01'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
@@ -69,8 +70,9 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    def retrofit_version = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:okhttp:4.10.0"
 
     // Glide
@@ -80,6 +82,11 @@ dependencies {
 
     // Data Store
     implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:31.0.2')
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 }
 
 kapt {

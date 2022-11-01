@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<style name="App.Shopin.TitleTextAppearance" parent="TextAppearance.Material3.TitleLarge">
-		<item name="android:textColor">@color/brand_color_primary</item>
+		<item name="android:textColor">?attr/colorPrimary</item>
 		<item name="android:textStyle">italic</item>
 		<item name="android:textSize">28sp</item>
 		<item name="fontFamily">@font/open_sans_extra_bold_italic</item>

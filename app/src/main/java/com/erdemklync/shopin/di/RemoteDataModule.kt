@@ -2,6 +2,7 @@ package com.erdemklync.shopin.di
 
 import com.erdemklync.shopin.BuildConfig
 import com.erdemklync.shopin.data.remote.service.StoreApi
+import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,5 +25,9 @@ object RemoteDataModule {
             .build()
             .create()
     }
+
+    @Provides
+    @Singleton
+    fun provideFirebaseService() = FirebaseAuth.getInstance()
 
 }

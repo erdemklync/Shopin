@@ -1,22 +1,25 @@
 <resources>
-	<string name="app_name">shopin</string>
-	<string name="title_products">Products</string>
-	<string name="content_description_cart">Cart</string>
-	<string name="content_description_product_image">Product Image</string>
-	<string name="add_to_cart">Add to Cart</string>
-	<string name="title_search">Search</string>
-	<string name="title_profile">Profile</string>
-	<string name="product_info">Product info</string>
-	<string name="hint_search">Search…</string>
+    <string name="app_name">shopin</string>
+    <string name="title_products">Products</string>
+    <string name="content_description_cart">Cart</string>
+    <string name="content_description_product_image">Product Image</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="title_search">Search</string>
+    <string name="title_profile">Profile</string>
+    <string name="product_info">Product info</string>
+    <string name="hint_search">Search…</string>
 
-	<string name="skip">Skip</string>
-	<string name="back">Back</string>
-	<string name="next">Next</string>
-	<string name="finish">Finish</string>
-	<string name="description_easy_shopping">Easy Shopping</string>
-	<string name="easy_shopping">Easy\nShopping</string>
-	<string name="description_free_shipping">Free Shipping</string>
-	<string name="free_shipping">Free\nShipping</string>
-	<string name="description_special_discounts">Special Discounts</string>
-	<string name="special_discounts">Special\nDiscounts</string>
+    <string name="skip">Skip</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="description_easy_shopping">Easy Shopping</string>
+    <string name="easy_shopping">Easy\nShopping</string>
+    <string name="description_free_shipping">Free Shipping</string>
+    <string name="free_shipping">Free\nShipping</string>
+    <string name="description_special_discounts">Special Discounts</string>
+    <string name="special_discounts">Special\nDiscounts</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description_login">Login Image</string>
 </resources>

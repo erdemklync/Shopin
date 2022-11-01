@@ -70,7 +70,12 @@ class OnBoardingFragment: Fragment() {
     }
 
     private fun navigateToProducts() {
-        val action = OnBoardingFragmentDirections.actionOnBoardingFragmentToProductsFragment()
+        val action = OnBoardingFragmentDirections.actionOnBoardingFragmentToAuthFragment()
         findNavController().navigate(action)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

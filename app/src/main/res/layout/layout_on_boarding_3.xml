@@ -5,7 +5,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@color/brand_color_primary">
+	android:background="?attr/colorPrimary">
 
 	<ImageView
 		android:id="@+id/image_on_boarding"
