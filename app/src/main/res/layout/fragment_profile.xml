@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".presentation.profile.ProfileFragment">
+
+    <ImageView
+        android:id="@+id/image_person"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:gravity="center"
+        android:src="@drawable/ic_person"
+        android:background="@color/amber"
+
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/text_full_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/text_full_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Erdem Kalyoncu"
+
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/image_person"
+        app:layout_constraintBottom_toTopOf="@id/text_username"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/text_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:text="ekalyoncu"
+
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/text_full_name"
+        app:layout_constraintBottom_toTopOf="@id/button_orders"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <Button
+        android:id="@+id/button_orders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Orders"
+        android:textAlignment="textStart"
+        android:includeFontPadding="false"
+        app:icon="@drawable/ic_bag"
+        app:iconPadding="16dp"
+        style="@style/Widget.Material3.Button.TonalButton"
+
+        app:layout_constraintBottom_toTopOf="@id/button_favorites"
+        />
+
+    <Button
+        android:id="@+id/button_favorites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Favorites"
+        android:textAlignment="textStart"
+        android:includeFontPadding="false"
+        app:icon="@drawable/ic_favorite"
+        app:iconPadding="16dp"
+        style="@style/Widget.Material3.Button.TonalButton"
+
+        app:layout_constraintBottom_toTopOf="@id/button_shopin_wallet"
+        />
+
+    <Button
+        android:id="@+id/button_shopin_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wallet"
+        android:textAlignment="textStart"
+        android:includeFontPadding="false"
+        app:icon="@drawable/ic_wallet"
+        app:iconPadding="16dp"
+        style="@style/Widget.Material3.Button.TonalButton"
+
+        app:layout_constraintBottom_toTopOf="@id/button_comments"
+        />
+
+    <Button
+        android:id="@+id/button_comments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comments"
+        android:textAlignment="textStart"
+        android:includeFontPadding="false"
+        app:icon="@drawable/ic_comment"
+        app:iconPadding="16dp"
+        style="@style/Widget.Material3.Button.TonalButton"
+
+        app:layout_constraintBottom_toTopOf="@id/button_help"
+        />
+
+    <Button
+        android:id="@+id/button_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Customer Service"
+        android:textAlignment="textStart"
+        android:includeFontPadding="false"
+        app:icon="@drawable/ic_headset"
+        app:iconPadding="16dp"
+        style="@style/Widget.Material3.Button.TonalButton"
+
+        app:layout_constraintBottom_toTopOf="@id/button_edit_profile"
+        />
+
+    <Button
+        android:id="@+id/button_edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_profile"
+        android:textAlignment="textStart"
+        android:includeFontPadding="false"
+        app:icon="@drawable/ic_edit"
+        app:iconPadding="16dp"
+        style="@style/Widget.Material3.Button.TonalButton"
+
+        app:layout_constraintBottom_toTopOf="@id/button_about"
+        />
+
+    <Button
+        android:id="@+id/button_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About Shopin"
+        android:textAlignment="textStart"
+        android:includeFontPadding="false"
+        app:icon="@drawable/ic_info"
+        app:iconPadding="16dp"
+        style="@style/Widget.Material3.Button.TonalButton"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

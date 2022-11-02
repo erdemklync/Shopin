@@ -72,4 +72,9 @@
 			android:id="@+id/action_authFragment_to_productsFragment"
 			app:destination="@id/productsFragment" />
 	</fragment>
+	<fragment
+		android:id="@+id/profileFragment"
+		android:name="com.erdemklync.shopin.presentation.profile.ProfileFragment"
+		android:label="fragment_profile"
+		tools:layout="@layout/fragment_profile" />
 </navigation>
