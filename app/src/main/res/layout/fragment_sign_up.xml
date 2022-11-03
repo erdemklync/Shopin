@@ -7,14 +7,32 @@
 	android:paddingHorizontal="16dp">
 
 	<com.google.android.material.textfield.TextInputLayout
+		android:id="@+id/input_layout_full_name"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:hint="Full Name"
+		style="@style/Widget.Shopin.InputLayout"
+
+		app:layout_constraintTop_toTopOf="parent">
+
+		<com.google.android.material.textfield.TextInputEditText
+			android:id="@+id/edit_text_full_name"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			/>
+
+	</com.google.android.material.textfield.TextInputLayout>
+
+	<com.google.android.material.textfield.TextInputLayout
 		android:id="@+id/input_layout_sign_up_username"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="16dp"
+		android:layout_marginTop="8dp"
 		android:hint="Username"
-		style="@style/Widget.Material3.TextInputLayout.FilledBox"
+		style="@style/Widget.Shopin.InputLayout"
 
-		app:layout_constraintTop_toTopOf="parent">
+		app:layout_constraintTop_toBottomOf="@+id/input_layout_full_name">
 
 	<com.google.android.material.textfield.TextInputEditText
 		android:id="@+id/edit_text_sign_up_username"
@@ -28,9 +46,9 @@
 		android:id="@+id/input_layout_sign_up_email"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="16dp"
+		android:layout_marginTop="8dp"
 		android:hint="Email"
-		style="@style/Widget.Material3.TextInputLayout.FilledBox"
+		style="@style/Widget.Shopin.InputLayout"
 
 		app:layout_constraintTop_toBottomOf="@id/input_layout_sign_up_username">
 
@@ -47,10 +65,10 @@
 		android:id="@+id/input_layout_sign_up_password"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="16dp"
+		android:layout_marginTop="8dp"
 		android:hint="Password"
 		app:passwordToggleEnabled="true"
-		style="@style/Widget.Material3.TextInputLayout.FilledBox"
+		style="@style/Widget.Shopin.InputLayout"
 
 		app:layout_constraintTop_toBottomOf="@id/input_layout_sign_up_email">
 
@@ -67,10 +85,10 @@
 		android:id="@+id/input_layout_sign_up_password_again"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="16dp"
+		android:layout_marginTop="8dp"
 		android:hint="Password (again)"
 		app:passwordToggleEnabled="true"
-		style="@style/Widget.Material3.TextInputLayout.FilledBox"
+		style="@style/Widget.Shopin.InputLayout"
 
 		app:layout_constraintTop_toBottomOf="@id/input_layout_sign_up_password">
 
@@ -85,12 +103,14 @@
 
 	<com.google.android.material.button.MaterialButton
 		android:id="@+id/button_sign_up"
-		android:layout_width="match_parent"
+		android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="16dp"
 		android:text="Sign Up"
 
 		app:layout_constraintTop_toBottomOf="@id/input_layout_sign_up_password_again"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
 		/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

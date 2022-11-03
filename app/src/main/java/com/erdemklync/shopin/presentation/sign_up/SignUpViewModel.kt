@@ -1,23 +1,28 @@
 package com.erdemklync.shopin.presentation.sign_up
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.erdemklync.shopin.presentation.auth.AuthState
+import com.erdemklync.shopin.util.Constants
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserProfileChangeRequest
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SignUpViewModel() : ViewModel() {
+@HiltViewModel
+class SignUpViewModel @Inject constructor(
+    private val firebaseAuth: FirebaseAuth,
+    private val firestore: FirebaseFirestore,
+) : ViewModel() {
 
     private val _state = MutableStateFlow(SignUpDataState())
     val state get() = _state.asStateFlow()
-
-    private var auth: FirebaseAuth = Firebase.auth
 
     private val isRegistrationValid: String?
         get() {
@@ -51,26 +56,16 @@ class SignUpViewModel() : ViewModel() {
                         isLoading = true
                     )
                 }
-                auth.createUserWithEmailAndPassword(
+                firebaseAuth.createUserWithEmailAndPassword(
                     it.email,
                     it.password,
                 ).addOnSuccessListener { result ->
                     result.user?.let { user ->
-                        val userWithUsername = UserProfileChangeRequest
-                            .Builder()
-                            .setDisplayName(it.username)
-                            .build()
-
-                        try {
-                            user.updateProfile(userWithUsername)
-                        } catch (e: Exception) {
-                            _state.update {
-                                it.copy(
-                                    authState = AuthState.Error(e.message.toString()),
-                                    isLoading = false
-                                )
-                            }
-                        }
+                        createUserFields(
+                            user = user,
+                            fullName = it.fullName,
+                            username = it.username,
+                        )
                     }
 
                     _state.update {
@@ -84,6 +79,25 @@ class SignUpViewModel() : ViewModel() {
         }
     }
 
+    private fun createUserFields(
+        user: FirebaseUser,
+        fullName: String,
+        username: String,
+    ) {
+        val userData = hashMapOf(
+            Constants.FIELD_FULL_NAME to fullName,
+            Constants.FIELD_USERNAME to username,
+        )
+
+        firestore
+            .collection(Constants.USERS)
+            .document(user.uid)
+            .set(userData)
+            .addOnFailureListener {
+                Log.e("SignUpViewModel", it.message.toString())
+            }
+    }
+
     fun clear() {
         _state.update {
             it.copy(
@@ -91,6 +105,14 @@ class SignUpViewModel() : ViewModel() {
                 email = "",
                 password = "",
                 passwordAgain = ""
+            )
+        }
+    }
+
+    fun setFullName(fullName: String) {
+        _state.update {
+            it.copy(
+                fullName = fullName
             )
         }
     }

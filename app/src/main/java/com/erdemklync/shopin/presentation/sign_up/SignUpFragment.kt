@@ -17,9 +17,11 @@ import com.erdemklync.shopin.presentation.auth.AuthFragment
 import com.erdemklync.shopin.presentation.auth.AuthProgressDialog
 import com.erdemklync.shopin.presentation.auth.AuthState
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SignUpFragment: Fragment(R.layout.fragment_sign_up) {
 
     private val viewModel: SignUpViewModel by viewModels()
@@ -61,6 +63,7 @@ class SignUpFragment: Fragment(R.layout.fragment_sign_up) {
                                     .show()
                                 delay(4000)
                                 alertDialog.cancel()
+                                viewModel.clear()
                                 (parentFragment as AuthFragment).openSignInTab()
                             }
                         }
@@ -71,6 +74,10 @@ class SignUpFragment: Fragment(R.layout.fragment_sign_up) {
                     }
                 }
             }
+        }
+
+        binding.editTextFullName.doAfterTextChanged {
+            viewModel.setFullName(it.toString())
         }
 
         binding.editTextSignUpUsername.doAfterTextChanged {
