@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.erdemklync.shopin.databinding.FragmentProfileBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -42,15 +43,30 @@ class ProfileFragment : Fragment() {
         }
 
         binding.buttonLogOut.setOnClickListener {
-            viewModel.signOut().also {
-                val action = ProfileFragmentDirections.actionProfileFragmentToAuthFragment()
-                findNavController().navigate(action)
-            }
+            showSignOutDialog()
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun showSignOutDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Sign out?")
+            .setMessage("Do you want to sign out?")
+            .setPositiveButton(
+                "Sign Out"
+            ) { _, _ ->
+                viewModel.signOut().also {
+                    val action = ProfileFragmentDirections.actionProfileFragmentToAuthFragment()
+                    findNavController().navigate(action)
+                }
+            }.setNegativeButton(
+                "Cancel"
+            ) { dialog, _ ->
+                dialog.cancel()
+            }.show()
     }
 }
