@@ -20,8 +20,6 @@ class SearchViewModel @Inject constructor(
     private val _state = MutableStateFlow(SearchDataState())
     val state get() = _state.asStateFlow()
 
-    //private val selectedCategories = MutableStateFlow<List<String>>(emptyList())
-
     val filteredList
         get() = _state.map {
             if(it.query.length > 2) {

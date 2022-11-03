@@ -8,6 +8,17 @@
     android:padding="16dp"
     tools:context=".presentation.profile.ProfileFragment">
 
+    <Button
+        android:id="@+id/button_log_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_log_out"
+        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
     <ImageView
         android:id="@+id/image_person"
         android:layout_width="64dp"
