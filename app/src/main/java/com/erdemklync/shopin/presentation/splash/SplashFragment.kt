@@ -1,47 +1,69 @@
 package com.erdemklync.shopin.presentation.splash
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import com.erdemklync.shopin.R
+import com.erdemklync.shopin.databinding.FragmentSplashBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class SplashFragment: Fragment(R.layout.fragment_splash) {
+class SplashFragment: Fragment() {
 
     private val viewModel: SplashViewModel by viewModels()
+
+    private var _binding: FragmentSplashBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentSplashBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.viewState.collectLatest { viewState ->
+                viewModel.viewState.collect { viewState ->
                     when(viewState) {
-                        SplashViewEvent.Loading -> {}
+                        SplashViewEvent.Loading -> {
+
+                        }
                         SplashViewEvent.ToOnBoardingFragment -> {
-                            val action = SplashFragmentDirections.actionSplashFragmentToOnBoardingFragment()
-                            findNavController().navigate(action)
+                            findNavController().navigate(
+                                SplashFragmentDirections.actionSplashFragmentToOnBoardingFragment()
+                            )
+                        }
+                        SplashViewEvent.ToAuthFragment -> {
+                            findNavController().navigate(
+                                SplashFragmentDirections.actionSplashFragmentToAuthFragment()
+                            )
                         }
                         SplashViewEvent.ToMainFragment -> {
-                            val action = SplashFragmentDirections.actionSplashFragmentToProductsFragment()
-                            findNavController().navigate(action)
-                        }
-
-                        SplashViewEvent.ToAuthFragment -> {
-                            val action = SplashFragmentDirections.actionSplashFragmentToAuthFragment()
-                            findNavController().navigate(action)
+                            findNavController().navigate(
+                                SplashFragmentDirections.actionSplashFragmentToProductsFragment()
+                            )
                         }
                     }
                 }
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

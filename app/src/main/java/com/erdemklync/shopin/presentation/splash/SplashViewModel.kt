@@ -5,9 +5,9 @@ import androidx.lifecycle.viewModelScope
 import com.erdemklync.shopin.data.local.DataStoreManager
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,7 +17,7 @@ class SplashViewModel @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
 ): ViewModel() {
 
-    private val _viewState = MutableStateFlow<SplashViewEvent>(SplashViewEvent.Loading)
+    private val _viewState = MutableSharedFlow<SplashViewEvent>()
     val viewState get() = _viewState.asSharedFlow()
 
     private val userSignedIn: Boolean
@@ -25,14 +25,15 @@ class SplashViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            dataStoreManager.getFirstTime.collectLatest { isFirstTime ->
+            dataStoreManager.getFirstTime.collect { isFirstTime ->
                 if (userSignedIn) {
-                    _viewState.value = SplashViewEvent.ToMainFragment
+                    delay(2000)
+                    _viewState.emit(SplashViewEvent.ToMainFragment)
                 } else {
                     if(isFirstTime) {
-                        _viewState.value = SplashViewEvent.ToOnBoardingFragment
+                        _viewState.emit(SplashViewEvent.ToOnBoardingFragment)
                     } else {
-                        _viewState.value = SplashViewEvent.ToAuthFragment
+                        _viewState.emit(SplashViewEvent.ToAuthFragment)
                     }
                 }
             }
