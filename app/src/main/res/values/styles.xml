@@ -7,4 +7,7 @@
 		<item name="fontFamily">@font/open_sans_extra_bold_italic</item>
 		<item name="android:letterSpacing">-0.1</item>
 	</style>
+	<style name="Widget.Shopin.InputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+		<item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Medium</item>
+	</style>
 </resources>
