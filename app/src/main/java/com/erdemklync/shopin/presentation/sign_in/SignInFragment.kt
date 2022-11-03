@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.erdemklync.shopin.databinding.LayoutSignInBinding
+import com.erdemklync.shopin.databinding.FragmentSignInBinding
 import com.erdemklync.shopin.presentation.auth.AuthFragment
 import com.erdemklync.shopin.presentation.auth.AuthProgressDialog
 import com.erdemklync.shopin.presentation.auth.AuthState
@@ -21,7 +21,7 @@ class SignInFragment: Fragment() {
 
     private val viewModel: SignInViewModel by viewModels()
 
-    private var _binding: LayoutSignInBinding? = null
+    private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -29,7 +29,7 @@ class SignInFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = LayoutSignInBinding.inflate(inflater, container, false)
+        _binding = FragmentSignInBinding.inflate(inflater, container, false)
         return binding.root
     }
 

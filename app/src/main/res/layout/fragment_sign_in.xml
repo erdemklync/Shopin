@@ -10,9 +10,9 @@
 		android:id="@+id/input_layout_sign_in_email"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="16dp"
+		android:layout_marginTop="8dp"
 		android:hint="Email"
-		style="@style/Widget.Material3.TextInputLayout.FilledBox"
+		style="@style/Widget.Shopin.InputLayout"
 
 		app:layout_constraintTop_toTopOf="parent">
 
@@ -28,10 +28,10 @@
 		android:id="@+id/input_layout_sign_in_password"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="16dp"
+		android:layout_marginTop="8dp"
 		android:hint="Password"
 		app:passwordToggleEnabled="true"
-		style="@style/Widget.Material3.TextInputLayout.FilledBox"
+		style="@style/Widget.Shopin.InputLayout"
 
 		app:layout_constraintTop_toBottomOf="@id/input_layout_sign_in_email">
 
@@ -46,12 +46,14 @@
 
 	<com.google.android.material.button.MaterialButton
 		android:id="@+id/button_sign_in"
-		android:layout_width="match_parent"
+		android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="16dp"
 		android:text="Sign In"
 
 		app:layout_constraintTop_toBottomOf="@id/input_layout_sign_in_password"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
 		/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
