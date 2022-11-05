@@ -13,10 +13,8 @@ class OnBoardingViewModel @Inject constructor(
 ) : ViewModel() {
 
     init {
-
-    }
-
-    private fun setFirstTime() = viewModelScope.launch {
-        dataStoreManager.setFirstTime(true)
+        viewModelScope.launch {
+            dataStoreManager.setFirstTime(true)
+        }
     }
 }
