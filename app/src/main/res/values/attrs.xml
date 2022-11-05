@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AmountView">
+        <attr name="amount" format="integer" />
+        <attr name="maxLimit" format="integer" />
+        <attr name="minLimit" format="integer" />
+        <attr name="color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="AddToCartView">
+        <attr name="addToCartAmount" format="integer" />
+        <attr name="addToCartMaxLimit" format="integer" />
+        <attr name="addToCartMinLimit" format="integer" />
+        <attr name="addToCartColor" format="color" />
+    </declare-styleable>
+</resources>
