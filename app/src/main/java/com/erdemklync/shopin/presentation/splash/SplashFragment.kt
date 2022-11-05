@@ -38,9 +38,7 @@ class SplashFragment: Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.viewState.collect { viewState ->
                     when(viewState) {
-                        SplashViewEvent.Loading -> {
-
-                        }
+                        SplashViewEvent.Loading -> {}
                         SplashViewEvent.ToOnBoardingFragment -> {
                             findNavController().navigate(
                                 SplashFragmentDirections.actionSplashFragmentToOnBoardingFragment()

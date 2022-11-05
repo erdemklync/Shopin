@@ -27,7 +27,7 @@ class SplashViewModel @Inject constructor(
         viewModelScope.launch {
             dataStoreManager.getFirstTime.collect { isFirstTime ->
                 if (userSignedIn) {
-                    delay(2000)
+                    delay(4000)
                     _viewState.emit(SplashViewEvent.ToMainFragment)
                 } else {
                     if(isFirstTime) {
