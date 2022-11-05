@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.erdemklync.shopin.databinding.ActivityMainBinding
@@ -30,6 +31,12 @@ class MainActivity: AppCompatActivity() {
         setContentView(binding.root)
 
         initView()
+
+        binding.buttonCart.setOnClickListener {
+            findNavController(R.id.nav_host_fragment).navigate(
+                R.id.action_global_cartFragment
+            )
+        }
     }
 
     private fun initView() {

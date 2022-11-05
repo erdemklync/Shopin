@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    tools:background="@drawable/bg_add_to_cart_view"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <TextView
+        android:id="@+id/text_added_to_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Added to Cart"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:drawableStartCompat="@drawable/ic_shopping_basket"
+        android:drawablePadding="8dp"
+        android:drawableTint="@color/white"
+        android:visibility="invisible"
+
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="button_decrease, button_increase, button_add_to_cart, text_amount"
+        />
+
+
+    <ImageView
+        android:id="@+id/button_decrease"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:paddingHorizontal="8dp"
+        android:src="@drawable/ic_remove"
+        android:clickable="true"
+        android:focusable="true"
+        app:tint="@color/white"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/text_amount"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18sp"
+        tools:text="10"
+        android:textColor="@color/white"
+        android:includeFontPadding="false"
+
+        app:layout_constraintTop_toTopOf="@id/button_decrease"
+        app:layout_constraintBottom_toBottomOf="@id/button_decrease"
+        app:layout_constraintStart_toEndOf="@id/button_decrease"
+        />
+
+    <ImageView
+        android:id="@+id/button_increase"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:paddingHorizontal="8dp"
+        android:src="@drawable/ic_add"
+        android:clickable="true"
+        android:focusable="true"
+        app:tint="@color/white"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/text_amount"
+        />
+
+    <Button
+        android:id="@+id/button_add_to_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Add to Cart"
+        style="@style/Widget.Shopin.AddToCartView.Button"
+
+        app:layout_constraintStart_toEndOf="@id/button_increase"
+        />
+
+</merge>
