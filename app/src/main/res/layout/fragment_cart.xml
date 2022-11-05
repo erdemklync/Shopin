@@ -1,10 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".presentation.cart.CartFragment">
+
+    <TextView
+        android:id="@+id/text_empty_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Empty cart"
+        android:visibility="gone"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="recycler_view_cart, button_checkout, text_price_total"
+        />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/text_cart_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Cart"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_cart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:listitem="@layout/item_cart"
+        tools:itemCount="2"
+
+        app:layout_constraintTop_toBottomOf="@id/text_cart_title"
+        app:layout_constraintBottom_toTopOf="@id/button_checkout"
+        />
+
+    <TextView
+        android:id="@+id/text_price_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="129,90 $"
+
+        app:layout_constraintTop_toTopOf="@id/button_checkout"
+        app:layout_constraintBottom_toBottomOf="@id/button_checkout"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <Button
+        android:id="@+id/button_checkout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:drawableLeftCompat="@drawable/ic_wallet"
+        android:drawableTint="@color/white"
+        android:text="Proceed to checkout"
+        style="@style/Widget.Material3.Button"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
