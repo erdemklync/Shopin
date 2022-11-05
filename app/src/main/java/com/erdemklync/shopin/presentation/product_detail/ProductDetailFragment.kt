@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -12,9 +13,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.erdemklync.shopin.databinding.FragmentProductDetailBinding
-import com.erdemklync.shopin.util.DataState
+import com.erdemklync.shopin.util.setPrice
 import com.erdemklync.shopin.util.setProductImage
-import com.erdemklync.shopin.util.setProductPrice
 import com.erdemklync.shopin.util.setProductRating
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -40,40 +40,37 @@ class ProductDetailFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collect { state ->
-                    when(val dataState = state.dataState) {
-                        is DataState.Loading -> {}
-                        is DataState.Error -> {
-                            Toast.makeText(requireContext(), dataState.message, Toast.LENGTH_LONG).show()
+                    with(binding) {
+                        state.product?.let { product ->
+                            imageProduct setProductImage product.image
+                            textProductRating setProductRating product.rating
+                            textProductPrice setPrice product.price
+                            ratingBarProduct.rating = product.rating?.rate?.toFloat()!!
+                            textProductTitle.text = product.title
+                            textProductDescription.text = product.description
+                            textProductCategory.text = product.category
                         }
-                        is DataState.Success -> {
-                            with(binding) {
-                                dataState.data.let { product ->
-                                    imageProduct setProductImage product.image
-                                    textProductRating setProductRating product.rating
-                                    textProductPrice setProductPrice product.price
-                                    textProductTitle.text = product.title
-                                    textProductDescription.text = product.description
-                                    textProductCategory.text = product.category
+
+                        loadingIndicator.isVisible = state.product == null
+                        groupProductDetail.isVisible = state.product != null
+
+                        viewAddToCart.amount = state.amount
+
+                        viewAddToCart.buttonIncrease.setOnClickListener {
+                            viewModel.incrementAmount()
+                        }
+
+                        viewAddToCart.buttonDecrease.setOnClickListener {
+                            viewModel.decrementAmount()
+                        }
+
+                        viewAddToCart.buttonAddToCart.setOnClickListener {
+                            viewModel.addToCart(
+                                onSuccess = {
+
+                                    Toast.makeText(requireContext(), "Added to cart", Toast.LENGTH_SHORT).show()
                                 }
-
-                                textAmount.text = state.amount.toString()
-
-                                loadingIndicator.visibility =  View.GONE
-                                contentDetail.visibility =  View.VISIBLE
-                                layoutBottom.visibility = View.VISIBLE
-
-                                buttonDecrement.setOnClickListener {
-                                    viewModel.decrementAmount()
-                                }
-
-                                buttonIncrement.setOnClickListener {
-                                    viewModel.incrementAmount()
-                                }
-
-                                buttonAddToCart.setOnClickListener {
-                                    viewModel.addToCart()
-                                }
-                            }
+                            )
                         }
                     }
                 }

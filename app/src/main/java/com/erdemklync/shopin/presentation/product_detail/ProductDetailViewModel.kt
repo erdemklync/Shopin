@@ -3,7 +3,9 @@ package com.erdemklync.shopin.presentation.product_detail
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.erdemklync.shopin.domain.use_cases.cart.CartUseCases
 import com.erdemklync.shopin.domain.use_cases.product.ProductUseCases
+import com.erdemklync.shopin.util.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,6 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ProductDetailViewModel @Inject constructor(
     private val productUseCases: ProductUseCases,
+    private val cartUseCases: CartUseCases,
     savedStateHandle: SavedStateHandle
 ): ViewModel() {
 
@@ -28,10 +31,16 @@ class ProductDetailViewModel @Inject constructor(
 
     private fun getProductById(id: Int) = viewModelScope.launch {
         productUseCases.getProductById(id).let { dataState ->
-            _state.update {
-                it.copy(
-                    dataState = dataState
-                )
+            when(dataState) {
+                is DataState.Loading -> {}
+                is DataState.Error -> {}
+                is DataState.Success -> {
+                    _state.update {
+                        it.copy(
+                            product = dataState.data
+                        )
+                    }
+                }
             }
         }
     }
@@ -56,7 +65,15 @@ class ProductDetailViewModel @Inject constructor(
         }
     }
 
-    fun addToCart(){
-
+    fun addToCart(
+        onSuccess:() -> Unit,
+    ) = viewModelScope.launch {
+        state.value.product?.let {
+            cartUseCases.addToCart(
+                product = it,
+                amount = state.value.amount,
+                onSuccess = onSuccess
+            )
+        }
     }
 }

@@ -5,8 +5,15 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:animateLayoutChanges="true"
 	tools:context=".presentation.product_detail.ProductDetailFragment">
+
+	<androidx.constraintlayout.widget.Group
+		android:id="@+id/group_product_detail"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		app:constraint_referenced_ids="image_product, layout_bottom, toolbar"
+		/>
 
 	<com.google.android.material.appbar.MaterialToolbar
 		android:id="@+id/toolbar"
@@ -16,25 +23,13 @@
 		app:titleTextAppearance="@style/App.Shopin.TitleTextAppearance"
 		app:layout_scrollFlags="scroll|enterAlways"
 
-		app:layout_constraintTop_toTopOf="parent">
-		<Button
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="end"
-			app:icon="@drawable/ic_favorite"
-			app:iconTint="@color/light_gray"
-			style="@style/Widget.Material3.Button.IconButton"
-
-			app:layout_constraintTop_toTopOf="parent"
-			app:layout_constraintEnd_toEndOf="parent"
-			/>
-	</com.google.android.material.appbar.MaterialToolbar>
+		app:layout_constraintTop_toTopOf="parent" />
 
 	<com.google.android.material.progressindicator.CircularProgressIndicator
 		android:id="@+id/loading_indicator"
-		android:layout_width="wrap_content"
+        android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:visibility="visible"
+		android:visibility="gone"
 		android:indeterminate="true"
 
 		app:layout_constraintStart_toStartOf="parent"
@@ -42,48 +37,50 @@
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintTop_toTopOf="parent" />
 
-	<androidx.constraintlayout.widget.ConstraintLayout
-		android:id="@+id/content_detail"
+	<ImageView
+		android:id="@+id/image_product"
 		android:layout_width="0dp"
 		android:layout_height="0dp"
-		android:paddingHorizontal="24dp"
-		android:visibility="invisible"
-		tools:visibility="visible"
+		android:padding="64dp"
+		tools:src="@drawable/img"
+		android:contentDescription="@string/content_description_product_image"
 
 		app:layout_constraintTop_toBottomOf="@id/toolbar"
-		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintBottom_toTopOf="@id/layout_bottom"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintEnd_toEndOf="parent">
+		app:layout_constraintEnd_toEndOf="parent"
+		/>
 
-		<ImageView
-			android:id="@+id/image_product"
-			android:layout_width="0dp"
-			android:layout_height="250dp"
-			tools:src="@drawable/img"
-			android:contentDescription="@string/content_description_product_image"
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/layout_bottom"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:padding="24dp"
+		android:visibility="invisible"
+		tools:visibility="visible"
+		app:layout_constraintHeight_percent="0.4"
+		android:background="@drawable/bg_product_detail_info"
+		android:backgroundTint="#EBECFA"
 
-			app:layout_constraintTop_toTopOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintEnd_toEndOf="parent" />
+		app:layout_constraintBottom_toBottomOf="parent">
 
 		<TextView
 			android:id="@+id/text_product_category"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="16dp"
 			android:textSize="12sp"
 			tools:text="@tools:sample/lorem"
 			android:textStyle="bold"
 			android:textColor="@color/light_gray"
 
-			app:layout_constraintTop_toBottomOf="@id/image_product"
+			app:layout_constraintTop_toTopOf="parent"
 			/>
 
 		<TextView
 			android:id="@+id/text_product_title"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:textSize="18sp"
+			android:textSize="20sp"
 			android:textStyle="bold"
 			tools:text="@tools:sample/lorem"
 			android:textColor="@color/black"
@@ -91,117 +88,65 @@
 			app:layout_constraintTop_toBottomOf="@id/text_product_category"
 			/>
 
+		<RatingBar
+			android:id="@+id/rating_bar_product"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			style="@style/Widget.AppCompat.RatingBar.Small"
+
+			app:layout_constraintTop_toTopOf="@id/text_product_rating"
+			app:layout_constraintBottom_toBottomOf="@id/text_product_rating"
+			app:layout_constraintStart_toStartOf="parent"
+			/>
+
 		<TextView
 			android:id="@+id/text_product_rating"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="16dp"
-			android:gravity="center"
-			tools:text="4.6 (120 reviews)"
-			app:drawableStartCompat="@drawable/ic_star"
-			app:drawableTint="@color/amber"
-			android:background="@drawable/bg_product_rating"
-			android:backgroundTint="?attr/colorSurfaceVariant"
+			android:layout_marginStart="4dp"
+			android:textSize="12sp"
+			tools:text="(120 reviews)"
 
 			app:layout_constraintTop_toBottomOf="@id/text_product_title"
-			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintStart_toEndOf="@id/rating_bar_product"
 			/>
 
-		<TextView
-			android:id="@+id/text_product_info"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="16dp"
-			android:text="@string/product_info"
-			android:textStyle="bold"
-			android:textColor="@color/black"
-
-			app:layout_constraintTop_toBottomOf="@id/text_product_rating"
-			app:layout_constraintStart_toStartOf="parent"
-			/>
 
 		<TextView
 			android:id="@+id/text_product_description"
-			android:layout_width="match_parent"
+            android:layout_width="match_parent"
 			android:layout_height="0dp"
-			android:layout_marginTop="4dp"
+			android:paddingVertical="8dp"
 			tools:text="@tools:sample/lorem/random"
 
-			app:layout_constraintTop_toBottomOf="@id/text_product_info"
-			app:layout_constraintBottom_toBottomOf="parent" />
-
-	</androidx.constraintlayout.widget.ConstraintLayout>
-
-	<androidx.constraintlayout.widget.ConstraintLayout
-		android:id="@+id/layout_bottom"
-		android:layout_width="match_parent"
-		android:layout_height="80dp"
-		android:padding="16dp"
-		android:visibility="invisible"
-		tools:visibility="visible"
-
-		app:layout_constraintBottom_toBottomOf="parent">
+			app:layout_constraintTop_toBottomOf="@id/text_product_rating"
+			app:layout_constraintBottom_toTopOf="@id/view_add_to_cart"
+			/>
 
 		<TextView
 			android:id="@+id/text_product_price"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:textSize="24sp"
+			android:textSize="26sp"
 			android:textStyle="bold"
 			android:textColor="?attr/colorPrimary"
 			tools:text="129,90 ₺"
 			android:includeFontPadding="false"
 
+			app:layout_constraintTop_toTopOf="@id/view_add_to_cart"
+			app:layout_constraintBottom_toBottomOf="@id/view_add_to_cart"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
-
-		<Button
-			android:id="@+id/button_decrement"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			app:icon="@drawable/ic_remove"
-			style="@style/Widget.Material3.Button.IconButton.Outlined"
-
-			app:layout_constraintTop_toTopOf="parent"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toStartOf="@id/text_amount"
 			/>
 
-		<TextView
-			android:id="@+id/text_amount"
-			android:layout_width="32dp"
-			android:layout_height="wrap_content"
-			android:gravity="center"
-			tools:text="1"
-			android:textSize="22sp"
-
-			app:layout_constraintTop_toTopOf="parent"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toStartOf="@id/button_increment"
-			/>
-
-		<Button
-			android:id="@+id/button_increment"
+		<com.erdemklync.shopin.presentation.custom_view.AddToCartView
+			android:id="@+id/view_add_to_cart"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			app:icon="@drawable/ic_add"
-			style="@style/Widget.Material3.Button.IconButton.Outlined"
 
-			app:layout_constraintTop_toTopOf="parent"
 			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toStartOf="@id/button_add_to_cart"
-			/>
-
-		<Button
-			android:id="@+id/button_add_to_cart"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/add_to_cart"
-
 			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
+			/>
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

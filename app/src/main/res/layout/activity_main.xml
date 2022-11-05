@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-	android:animateLayoutChanges="true"
     tools:context=".MainActivity">
 
 	<com.google.android.material.appbar.MaterialToolbar
@@ -19,13 +18,14 @@
 
 		<Button
 			android:id="@+id/button_cart"
-			android:layout_width="wrap_content"
+            android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="end"
 			android:layout_marginEnd="16dp"
 			tools:text="0.00 ₺"
 			app:icon="@drawable/ic_shopping_basket"
 			app:iconPadding="8dp"
+			app:iconGravity="end"
 			style="@style/Widget.Material3.Button.IconButton.Outlined"
 
 			app:layout_constraintTop_toTopOf="parent"
