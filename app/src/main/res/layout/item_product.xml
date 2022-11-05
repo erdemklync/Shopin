@@ -6,12 +6,14 @@
 	android:layout_width="match_parent"
 	android:layout_height="200dp"
 	android:layout_margin="8dp"
-	app:cardCornerRadius="12dp">
+	app:cardCornerRadius="12dp"
+	app:cardElevation="0dp">
 
 	<ImageView
 		android:id="@+id/image_product"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		android:padding="24dp"
 		android:contentDescription="@string/content_description_product_image"
 		android:src="@drawable/img"
 		/>
@@ -41,16 +43,14 @@
 			app:layout_constraintStart_toStartOf="parent"
 			/>
 
-		<com.google.android.material.chip.Chip
+		<TextView
 			android:id="@+id/text_product_price"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			app:chipCornerRadius="24dp"
-			app:chipStrokeWidth="0dp"
 			tools:text="129,90 ₺"
 			android:textStyle="bold"
-			android:textSize="16sp"
-			android:textColor="?attr/colorOnSurface"
+			android:textSize="18sp"
+			android:textColor="@color/white"
 
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
