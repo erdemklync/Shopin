@@ -1,13 +1,9 @@
 <resources>
     <string name="app_name">shopin</string>
     <string name="title_products">Products</string>
-    <string name="content_description_cart">Cart</string>
     <string name="content_description_product_image">Product Image</string>
-    <string name="add_to_cart">Add to Cart</string>
     <string name="title_search">Search</string>
     <string name="title_profile">Profile</string>
-    <string name="product_info">Product info</string>
-    <string name="hint_search">Search…</string>
 
     <string name="skip">Skip</string>
     <string name="back">Back</string>
@@ -19,8 +15,11 @@
     <string name="free_shipping">Free\nShipping</string>
     <string name="description_special_discounts">Special Discounts</string>
     <string name="special_discounts">Special\nDiscounts</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="description_login">Login Image</string>
     <string name="edit_profile">Edit Profile</string>
+
+    <string name="on_boarding_1">Shopin mobile app has many features to ensure that you have the best shopping experience.</string>
+    <string name="on_boarding_2">Sign up now and pay nothing for delivery.</string>
+    <string name="on_boarding_3">We care about you. Coupons, discounts and other benefits are waiting for you!</string>
 </resources>

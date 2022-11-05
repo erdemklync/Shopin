@@ -2,12 +2,32 @@
 <resources>
 	<style name="App.Shopin.TitleTextAppearance" parent="TextAppearance.Material3.TitleLarge">
 		<item name="android:textColor">?attr/colorPrimary</item>
-		<item name="android:textStyle">italic</item>
-		<item name="android:textSize">28sp</item>
-		<item name="fontFamily">@font/open_sans_extra_bold_italic</item>
-		<item name="android:letterSpacing">-0.1</item>
+		<item name="android:textSize">26sp</item>
+		<item name="fontFamily">@font/comfortaa_bold</item>
+		<item name="android:letterSpacing">-0.05</item>
 	</style>
 	<style name="Widget.Shopin.InputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
 		<item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Medium</item>
 	</style>
+	<style name="Widget.Shopin.SearchBox" parent="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+		<item name="boxBackgroundColor">@color/md_theme_light_inverseOnSurface</item>
+		<item name="boxStrokeWidthFocused">0dp</item>
+		<item name="boxStrokeWidth">0dp</item>
+		<item name="boxCornerRadiusTopStart">8dp</item>
+		<item name="boxCornerRadiusTopEnd">8dp</item>
+		<item name="boxCornerRadiusBottomStart">8dp</item>
+		<item name="boxCornerRadiusBottomEnd">8dp</item>
+	</style>
+	<style name="Widget.Shopin.AddToCartView.Button.Shape" parent="ShapeAppearanceOverlay.Material3.Button">
+		<item name="cornerSizeTopLeft">0dp</item>
+		<item name="cornerSizeTopRight">8dp</item>
+		<item name="cornerSizeBottomLeft">0dp</item>
+		<item name="cornerSizeBottomRight">8dp</item>
+	</style>
+	<style name="Widget.Shopin.AddToCartView.Button" parent="Widget.Material3.Button">
+		<item name="shapeAppearance">@style/Widget.Shopin.AddToCartView.Button.Shape</item>
+		<item name="android:paddingStart">8dp</item>
+		<item name="android:paddingEnd">8dp</item>
+	</style>
+
 </resources>
