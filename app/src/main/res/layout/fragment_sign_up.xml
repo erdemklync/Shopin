@@ -18,7 +18,7 @@
 
 		<com.google.android.material.textfield.TextInputEditText
 			android:id="@+id/edit_text_full_name"
-			android:layout_width="match_parent"
+            android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			/>
 
@@ -35,8 +35,8 @@
 		app:layout_constraintTop_toBottomOf="@+id/input_layout_full_name">
 
 	<com.google.android.material.textfield.TextInputEditText
-		android:id="@+id/edit_text_sign_up_username"
-		android:layout_width="match_parent"
+		android:id="@+id/edit_text_username"
+        android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		/>
 
@@ -53,8 +53,8 @@
 		app:layout_constraintTop_toBottomOf="@id/input_layout_sign_up_username">
 
 		<com.google.android.material.textfield.TextInputEditText
-			android:id="@+id/edit_text_sign_up_email"
-			android:layout_width="match_parent"
+			android:id="@+id/edit_text_email"
+            android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:inputType="textEmailAddress"
 			/>
@@ -73,8 +73,8 @@
 		app:layout_constraintTop_toBottomOf="@id/input_layout_sign_up_email">
 
 		<com.google.android.material.textfield.TextInputEditText
-			android:id="@+id/edit_text_sign_up_password"
-			android:layout_width="match_parent"
+			android:id="@+id/edit_text_password"
+            android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:inputType="textPassword"
 			/>
@@ -93,8 +93,8 @@
 		app:layout_constraintTop_toBottomOf="@id/input_layout_sign_up_password">
 
 		<com.google.android.material.textfield.TextInputEditText
-			android:id="@+id/edit_text_sign_up_password_again"
-			android:layout_width="match_parent"
+			android:id="@+id/edit_text_password_again"
+            android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:inputType="textPassword"
 			/>
@@ -103,7 +103,7 @@
 
 	<com.google.android.material.button.MaterialButton
 		android:id="@+id/button_sign_up"
-		android:layout_width="0dp"
+        android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="16dp"
 		android:text="Sign Up"

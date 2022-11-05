@@ -80,19 +80,19 @@ class SignUpFragment: Fragment(R.layout.fragment_sign_up) {
             viewModel.setFullName(it.toString())
         }
 
-        binding.editTextSignUpUsername.doAfterTextChanged {
+        binding.editTextUsername.doAfterTextChanged {
             viewModel.setUsername(it.toString())
         }
 
-        binding.editTextSignUpEmail.doAfterTextChanged {
+        binding.editTextEmail.doAfterTextChanged {
             viewModel.setEmail(it.toString())
         }
 
-        binding.editTextSignUpPassword.doAfterTextChanged {
+        binding.editTextPassword.doAfterTextChanged {
             viewModel.setPassword(it.toString())
         }
 
-        binding.editTextSignUpPasswordAgain.doAfterTextChanged {
+        binding.editTextPasswordAgain.doAfterTextChanged {
             viewModel.setPasswordAgain(it.toString())
         }
 
