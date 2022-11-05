@@ -1,6 +1,7 @@
 package com.erdemklync.shopin
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -10,11 +11,15 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.erdemklync.shopin.databinding.ActivityMainBinding
+import com.erdemklync.shopin.presentation.main.MainViewModel
+import com.erdemklync.shopin.util.setPrice
 import com.google.android.material.elevation.SurfaceColors
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity: AppCompatActivity() {
+
+    private val viewModel: MainViewModel by viewModels()
 
     private lateinit var binding: ActivityMainBinding
 
@@ -29,6 +34,12 @@ class MainActivity: AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        lifecycleScope.launchWhenResumed {
+            viewModel.cartTotal.collect { cartTotal ->
+                binding.buttonCart setPrice cartTotal
+            }
+        }
 
         initView()
 
@@ -54,7 +65,8 @@ class MainActivity: AppCompatActivity() {
                             window.navigationBarColor = ContextCompat.getColor(this@MainActivity, R.color.md_theme_light_primary)
                             window.statusBarColor = ContextCompat.getColor(this@MainActivity, R.color.md_theme_light_primary)
                         }
-                        R.id.authFragment -> {
+                        R.id.authFragment,
+                        R.id.productDetailFragment -> {
                             showSystemBars(false)
                             setStatusBarItemsColor(true)
                             window.navigationBarColor = SurfaceColors.SURFACE_0.getColor(this@MainActivity)
