@@ -24,7 +24,7 @@ class SearchViewModel @Inject constructor(
         get() = _state.map {
             if(it.query.length > 2) {
                 it.products.filter { product ->
-                    product.title.contains(it.query, true)
+                    product.title?.contains(it.query, true) ?: false
                 }
             } else {
                 it.products

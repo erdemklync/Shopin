@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -13,7 +13,6 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.erdemklync.shopin.databinding.FragmentSearchBinding
-import com.erdemklync.shopin.presentation.products.ProductAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -25,12 +24,12 @@ class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    private val categoryAdapter = ChipAdapter { category ->
+    private val categoryAdapter = CategoryAdapter { category ->
         viewModel.selectFilter(category)
     }
 
-    private val productAdapter = ProductAdapter { product ->
-        val action = SearchFragmentDirections.actionSearchFragmentToProductDetailFragment(product.id)
+    private val productAdapter = SearchAdapter { product ->
+        val action = SearchFragmentDirections.actionSearchFragmentToProductDetailFragment(product.id ?: 0)
         findNavController().navigate(action)
     }
 
@@ -65,21 +64,9 @@ class SearchFragment : Fragment() {
         }
 
         with(binding) {
-            searchView.setOnQueryTextListener(
-                object : SearchView.OnQueryTextListener {
-                    override fun onQueryTextSubmit(query: String?): Boolean {
-                        return false
-                    }
-
-                    override fun onQueryTextChange(newText: String?): Boolean {
-                        newText?.let { query ->
-                            viewModel.setQuery(query)
-                        }
-
-                        return false
-                    }
-                }
-            )
+            editTextSearch.doAfterTextChanged { query ->
+                viewModel.setQuery(query.toString())
+            }
 
             recyclerViewCategories.apply {
                 layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)

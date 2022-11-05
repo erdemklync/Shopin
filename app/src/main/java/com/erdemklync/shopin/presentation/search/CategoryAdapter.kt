@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.erdemklync.shopin.databinding.ItemCategoryBinding
 
-class ChipAdapter(
+class CategoryAdapter(
     private val onCheck: (String) -> Unit,
-) : ListAdapter<String, ChipAdapter.ChipViewHolder>(ProductsDiffUtil()) {
+) : ListAdapter<String, CategoryAdapter.ChipViewHolder>(ProductsDiffUtil()) {
 
     class ChipViewHolder(
         private val binding: ItemCategoryBinding

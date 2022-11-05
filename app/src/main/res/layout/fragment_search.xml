@@ -1,43 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.motion.widget.MotionLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:padding="16dp"
+	android:clipChildren="false"
+	android:clipToPadding="false"
 	android:animateLayoutChanges="true"
+	app:layoutDescription="@xml/fragment_search_scene"
 	tools:context=".presentation.search.SearchFragment">
 
-	<androidx.appcompat.widget.SearchView
+	<com.google.android.material.textfield.TextInputLayout
 		android:id="@+id/search_view"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:queryBackground="@null"
+		app:endIconMode="clear_text"
+		app:hintEnabled="false"
+		app:startIconDrawable="@drawable/ic_search"
+		style="@style/Widget.Shopin.SearchBox"
 
-		app:layout_constraintTop_toTopOf="parent"/>
+		app:layout_constraintTop_toTopOf="parent">
+
+		<com.google.android.material.textfield.TextInputEditText
+			android:id="@+id/edit_text_search"
+            android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:hint="Search in products..." />
+
+	</com.google.android.material.textfield.TextInputLayout>
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/recycler_view_categories"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:paddingHorizontal="12dp"
 		android:clipToPadding="false"
-		tools:listitem="@layout/item_category"
+		app:layout_constraintTop_toBottomOf="@id/search_view"
 		tools:itemCount="4"
 
-		app:layout_constraintTop_toBottomOf="@id/search_view"
-		/>
-
+		tools:listitem="@layout/item_category" />
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/recycler_view_products"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:padding="8dp"
 		android:clipToPadding="false"
-		tools:listitem="@layout/item_product"
+		app:layout_constraintBottom_toBottomOf="parent"
 
 		app:layout_constraintTop_toBottomOf="@id/recycler_view_categories"
-		app:layout_constraintBottom_toBottomOf="parent" />
+		tools:listitem="@layout/item_product" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
