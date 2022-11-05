@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.erdemklync.shopin.data.remote.entity.Product
 import com.erdemklync.shopin.databinding.ItemProductBinding
+import com.erdemklync.shopin.util.setPrice
 import com.erdemklync.shopin.util.setProductImage
-import com.erdemklync.shopin.util.setProductPrice
 
 class ProductAdapter(
     private val onClick:(Product) -> Unit,
@@ -22,7 +22,7 @@ class ProductAdapter(
             with(binding) {
                 imageProduct setProductImage product.image
                 textProductTitle.text = product.title
-                textProductPrice setProductPrice product.price
+                textProductPrice setPrice product.price
                 root.setOnClickListener {
                     onClick(product)
                 }

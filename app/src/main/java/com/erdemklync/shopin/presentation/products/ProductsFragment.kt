@@ -26,7 +26,7 @@ class ProductsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val productAdapter = ProductAdapter { product ->
-        val action = ProductsFragmentDirections.actionProductsFragmentToProductDetailFragment(product.id)
+        val action = ProductsFragmentDirections.actionProductsFragmentToProductDetailFragment(product.id ?: 0)
         findNavController().navigate(action)
     }
 

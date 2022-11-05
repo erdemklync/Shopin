@@ -25,7 +25,6 @@
         android:layout_height="64dp"
         android:gravity="center"
         android:src="@drawable/ic_person"
-        android:background="@color/amber"
 
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toTopOf="parent"
