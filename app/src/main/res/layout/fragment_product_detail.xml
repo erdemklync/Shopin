@@ -42,7 +42,7 @@
 		android:layout_width="0dp"
 		android:layout_height="0dp"
 		android:padding="64dp"
-		tools:src="@drawable/img"
+		android:src="@tools:sample/avatars"
 		android:contentDescription="@string/description_product_image"
 
 		app:layout_constraintTop_toBottomOf="@id/toolbar"

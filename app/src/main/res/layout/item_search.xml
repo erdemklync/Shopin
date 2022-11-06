@@ -18,8 +18,7 @@
 			android:id="@+id/image_product"
 			android:layout_width="80dp"
 			android:layout_height="80dp"
-
-			android:src="@drawable/img"
+			android:src="@tools:sample/avatars"
 			android:contentDescription="@string/description_product_image"
 
 			app:layout_constraintTop_toTopOf="parent"

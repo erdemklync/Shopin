@@ -15,7 +15,7 @@
 		android:layout_height="match_parent"
 		android:padding="24dp"
 		android:contentDescription="@string/description_product_image"
-		android:src="@drawable/img"
+		android:src="@tools:sample/avatars"
 		/>
 
 	<FrameLayout
