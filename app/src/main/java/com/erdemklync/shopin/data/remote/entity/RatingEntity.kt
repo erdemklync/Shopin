@@ -2,7 +2,7 @@ package com.erdemklync.shopin.data.remote.entity
 
 import com.google.gson.annotations.SerializedName
 
-data class Rating(
+data class RatingEntity(
     @SerializedName("count")
     val count: Int? = 0,
     @SerializedName("rate")

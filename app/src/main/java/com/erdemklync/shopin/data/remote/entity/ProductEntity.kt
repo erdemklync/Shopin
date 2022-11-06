@@ -2,7 +2,7 @@ package com.erdemklync.shopin.data.remote.entity
 
 import com.google.gson.annotations.SerializedName
 
-data class Product(
+data class ProductEntity(
     @SerializedName("category")
     val category: String? = "",
     @SerializedName("description")
@@ -14,7 +14,7 @@ data class Product(
     @SerializedName("price")
     val price: Double? = 0.0,
     @SerializedName("rating")
-    val rating: Rating? = Rating(),
+    val rating: RatingEntity? = RatingEntity(),
     @SerializedName("title")
     val title: String? = "",
 )
