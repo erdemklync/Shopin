@@ -1,26 +1,12 @@
 package com.erdemklync.shopin.domain.use_cases.cart
 
-import com.erdemklync.shopin.util.Constants
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.erdemklync.shopin.domain.repository.CartRepository
 import javax.inject.Inject
 
 class ClearCart @Inject constructor(
-    private val firebaseAuth: FirebaseAuth,
-    private val firestore: FirebaseFirestore,
+    private val cartRepository: CartRepository
 ) {
     operator fun invoke() {
-        firebaseAuth.currentUser?.let { user ->
-            firestore
-                .collection(Constants.USERS)
-                .document(user.uid)
-                .collection(Constants.CART)
-                .get()
-                .addOnSuccessListener { snapshot ->
-                    snapshot.forEach { docs ->
-                        docs.reference.delete()
-                    }
-                }
-        }
+        cartRepository.clearCart()
     }
 }
