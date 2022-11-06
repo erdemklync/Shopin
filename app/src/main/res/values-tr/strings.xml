@@ -51,6 +51,7 @@
     <string name="description_special_discounts">Özel İndirimler</string>
     <string name="description_login">Giriş Yap Görseli</string>
     <string name="description_profile_photo">Profil Fotoğrafı</string>
+    <string name="cart">Sepet</string>
 
     <plurals name="review">
         <item quantity="one">%d değerlendirme</item>

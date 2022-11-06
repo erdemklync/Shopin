@@ -51,6 +51,7 @@
     <string name="description_special_discounts">Special Discounts</string>
     <string name="description_login">Login Image</string>
     <string name="description_profile_photo">Profile photo</string>
+    <string name="cart">Cart</string>
 
     <plurals name="review">
         <item quantity="zero">No review</item>

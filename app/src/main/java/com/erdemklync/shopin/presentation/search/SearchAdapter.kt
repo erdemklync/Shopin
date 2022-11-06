@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.erdemklync.shopin.data.remote.entity.Product
-import com.erdemklync.shopin.databinding.ItemProductSearchBinding
+import com.erdemklync.shopin.databinding.ItemSearchBinding
 import com.erdemklync.shopin.util.setPrice
 import com.erdemklync.shopin.util.setProductImage
 
@@ -16,7 +16,7 @@ class SearchAdapter(
 ) : ListAdapter<Product, SearchAdapter.ProductsViewHolder>(ProductsDiffUtil()) {
 
     class ProductsViewHolder(
-        private val binding: ItemProductSearchBinding
+        private val binding: ItemSearchBinding
     ): RecyclerView.ViewHolder(binding.root){
 
         fun bind(product: Product, onClick:(Product) -> Unit) {
@@ -32,7 +32,7 @@ class SearchAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
-        val binding = ItemProductSearchBinding.inflate(
+        val binding = ItemSearchBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false

@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:paddingTop="?attr/actionBarSize"
+    android:paddingHorizontal="16dp"
     tools:context=".presentation.profile.ProfileFragment">
 
     <Button
@@ -127,20 +128,6 @@
         android:textAlignment="textStart"
         android:includeFontPadding="false"
         app:icon="@drawable/ic_headset"
-        app:iconPadding="16dp"
-        style="@style/Widget.Material3.Button.TonalButton"
-
-        app:layout_constraintBottom_toTopOf="@id/button_edit_profile"
-        />
-
-    <Button
-        android:id="@+id/button_edit_profile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/edit_profile"
-        android:textAlignment="textStart"
-        android:includeFontPadding="false"
-        app:icon="@drawable/ic_edit"
         app:iconPadding="16dp"
         style="@style/Widget.Material3.Button.TonalButton"
 
