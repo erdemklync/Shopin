@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.text.bold
 import com.bumptech.glide.Glide
+import com.erdemklync.shopin.R
 import com.erdemklync.shopin.data.remote.entity.Rating
 
 infix fun ImageView.setProductImage(imageUrl: String?) {
@@ -22,6 +23,6 @@ infix fun TextView.setProductRating(rating: Rating?) {
         this.text = SpannableStringBuilder()
             .bold {
                 append(it.rate.toString())
-            }.append(" (${it.count} reviews)")
+            }.append(" ${resources.getQuantityString(R.plurals.review, rating.count!!, rating.count)}")
     }
 }

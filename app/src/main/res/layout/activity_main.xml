@@ -22,7 +22,7 @@
 			android:layout_height="wrap_content"
 			android:layout_gravity="end"
 			android:layout_marginEnd="16dp"
-			tools:text="0.00 ₺"
+			tools:text="$0.00"
 			app:icon="@drawable/ic_shopping_basket"
 			app:iconPadding="8dp"
 			app:iconGravity="end"

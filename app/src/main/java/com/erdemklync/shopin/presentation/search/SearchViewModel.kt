@@ -79,17 +79,17 @@ class SearchViewModel @Inject constructor(
     }
 
     fun selectFilter(filter: String) {
-        val _selectedCategories = _state.value.selectedCategories.toMutableList()
+        val selectedCategories = _state.value.selectedCategories.toMutableList()
 
-        if(_selectedCategories.contains(filter)) {
-            _selectedCategories.remove(filter)
+        if(selectedCategories.contains(filter)) {
+            selectedCategories.remove(filter)
         } else {
-            _selectedCategories.add(filter)
+            selectedCategories.add(filter)
         }
 
         _state.update {
             it.copy(
-                selectedCategories = _selectedCategories
+                selectedCategories = selectedCategories
             )
         }
     }

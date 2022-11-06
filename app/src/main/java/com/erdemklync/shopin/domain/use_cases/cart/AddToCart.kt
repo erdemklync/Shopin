@@ -23,10 +23,11 @@ class AddToCart @Inject constructor(
                 Constants.FIELD_PRODUCT_ID to product.id,
                 Constants.FIELD_PRODUCT_IMAGE to product.image,
                 Constants.FIELD_PRODUCT_TITLE to product.title,
+                Constants.FIELD_PRODUCT_CATEGORY to product.category,
                 Constants.FIELD_PRODUCT_DESCRIPTION to product.description,
                 Constants.FIELD_PRODUCT_RATING to mapOf(
-                    "count" to product.rating?.count,
-                    "rate" to product.rating?.rate,
+                    Constants.FIELD_PRODUCT_RATING_COUNT to product.rating?.count,
+                    Constants.FIELD_PRODUCT_RATING_RATE to product.rating?.rate,
                 ),
                 Constants.FIELD_PRODUCT_PRICE to product.price,
             ),

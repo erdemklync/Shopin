@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.erdemklync.shopin.R
 import com.erdemklync.shopin.databinding.FragmentProductDetailBinding
 import com.erdemklync.shopin.util.setPrice
 import com.erdemklync.shopin.util.setProductImage
@@ -67,8 +68,7 @@ class ProductDetailFragment : Fragment() {
                         viewAddToCart.buttonAddToCart.setOnClickListener {
                             viewModel.addToCart(
                                 onSuccess = {
-
-                                    Toast.makeText(requireContext(), "Added to cart", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(requireContext(), resources.getString(R.string.toast_message_added_to_cart), Toast.LENGTH_SHORT).show()
                                 }
                             )
                         }

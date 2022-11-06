@@ -8,14 +8,12 @@
     android:padding="4dp"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <ImageView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_decrease"
-        android:layout_width="32dp"
+        android:layout_width="wrap_content"
         android:layout_height="32dp"
-        android:padding="4dp"
-        android:src="@drawable/ic_remove"
-        android:clickable="true"
-        android:focusable="true"
+        app:icon="@drawable/ic_remove"
+        style="@style/Widget.Material3.Button.IconButton"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,19 +34,16 @@
         app:layout_constraintStart_toEndOf="@id/button_decrease"
         />
 
-    <ImageView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_increase"
-        android:layout_width="32dp"
+        android:layout_width="wrap_content"
         android:layout_height="32dp"
-        android:padding="4dp"
-        android:src="@drawable/ic_add"
-        android:clickable="true"
-        android:focusable="true"
+        app:icon="@drawable/ic_add"
+        style="@style/Widget.Material3.Button.IconButton"
 
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_amount"
         />
-
 
 </merge>

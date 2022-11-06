@@ -27,7 +27,7 @@
 			android:id="@+id/edit_text_search"
             android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:hint="Search in products..." />
+			android:hint="@string/search_in_products" />
 
 	</com.google.android.material.textfield.TextInputLayout>
 

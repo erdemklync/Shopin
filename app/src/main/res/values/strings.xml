@@ -1,25 +1,60 @@
 <resources>
-    <string name="app_name">shopin</string>
-    <string name="title_products">Products</string>
-    <string name="content_description_product_image">Product Image</string>
-    <string name="title_search">Search</string>
-    <string name="title_profile">Profile</string>
-
+    <string name="app_name" translatable="false">shopin</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
     <string name="skip">Skip</string>
     <string name="back">Back</string>
     <string name="next">Next</string>
     <string name="finish">Finish</string>
-    <string name="description_easy_shopping">Easy Shopping</string>
-    <string name="easy_shopping">Easy\nShopping</string>
-    <string name="description_free_shipping">Free Shipping</string>
-    <string name="free_shipping">Free\nShipping</string>
-    <string name="description_special_discounts">Special Discounts</string>
-    <string name="special_discounts">Special\nDiscounts</string>
-
-    <string name="description_login">Login Image</string>
+    <string name="remove">Remove</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="orders">Orders</string>
+    <string name="favorites">Favorites</string>
+    <string name="wallet">Wallet</string>
+    <string name="comments">Comments</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="username">Username</string>
+    <string name="password_again">Password (again)</string>
+    <string name="added_to_cart">Added to Cart</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="title_products">Products</string>
+    <string name="title_search">Search</string>
+    <string name="title_profile">Profile</string>
+    <string name="customer_service">Customer Service</string>
+    <string name="about_shopin">About Shopin</string>
+    <string name="search_in_products">Search in products…</string>
     <string name="edit_profile">Edit Profile</string>
-
+    <string name="empty_cart">Oh, it looks like you have nothing in your cart!</string>
+    <string name="proceed_to_checkout">Proceed to checkout</string>
+    <string name="easy_shopping">Easy\nShopping</string>
+    <string name="special_discounts">Special\nDiscounts</string>
+    <string name="free_shipping">Free\nShipping</string>
     <string name="on_boarding_1">Shopin mobile app has many features to ensure that you have the best shopping experience.</string>
     <string name="on_boarding_2">Sign up now and pay nothing for delivery.</string>
     <string name="on_boarding_3">We care about you. Coupons, discounts and other benefits are waiting for you!</string>
+    <string name="dialog_title_remove_from_cart">Remove from cart?</string>
+    <string name="dialog_title_confirm_payment">Confirm payment?</string>
+    <string name="dialog_title_sign_out">Sign out?</string>
+    <string name="dialog_title_sign_up_successful">Sign up successful</string>
+    <string name="dialog_message_remove_from_cart">You are going to remove this item from your cart.</string>
+    <string name="dialog_message_confirm_payment">You are going to confirm the payment</string>
+    <string name="dialog_message_payment_successful">Payment successful</string>
+    <string name="dialog_message_sign_out">You are going to sign out.</string>
+    <string name="dialog_message_sign_up_successful">You are being redirected to login screen.</string>
+    <string name="toast_message_added_to_cart">Added to cart</string>
+    <string name="description_product_image">Product Image</string>
+    <string name="description_easy_shopping">Easy Shopping</string>
+    <string name="description_free_shipping">Free Shipping</string>
+    <string name="description_special_discounts">Special Discounts</string>
+    <string name="description_login">Login Image</string>
+    <string name="description_profile_photo">Profile photo</string>
+
+    <plurals name="review">
+        <item quantity="zero">No review</item>
+        <item quantity="one">%d review</item>
+        <item quantity="other">%d reviews</item>
+    </plurals>
 </resources>

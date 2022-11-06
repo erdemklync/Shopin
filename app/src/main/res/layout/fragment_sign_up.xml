@@ -11,7 +11,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="8dp"
-		android:hint="Full Name"
+		android:hint="@string/full_name"
 		style="@style/Widget.Shopin.InputLayout"
 
 		app:layout_constraintTop_toTopOf="parent">
@@ -29,7 +29,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="8dp"
-		android:hint="Username"
+		android:hint="@string/username"
 		style="@style/Widget.Shopin.InputLayout"
 
 		app:layout_constraintTop_toBottomOf="@+id/input_layout_full_name">
@@ -47,7 +47,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="8dp"
-		android:hint="Email"
+		android:hint="@string/email"
 		style="@style/Widget.Shopin.InputLayout"
 
 		app:layout_constraintTop_toBottomOf="@id/input_layout_sign_up_username">
@@ -66,7 +66,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="8dp"
-		android:hint="Password"
+		android:hint="@string/password"
 		app:passwordToggleEnabled="true"
 		style="@style/Widget.Shopin.InputLayout"
 
@@ -86,7 +86,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="8dp"
-		android:hint="Password (again)"
+		android:hint="@string/password_again"
 		app:passwordToggleEnabled="true"
 		style="@style/Widget.Shopin.InputLayout"
 
@@ -106,7 +106,7 @@
         android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="16dp"
-		android:text="Sign Up"
+		android:text="@string/sign_up"
 
 		app:layout_constraintTop_toBottomOf="@id/input_layout_sign_up_password_again"
 		app:layout_constraintStart_toStartOf="parent"

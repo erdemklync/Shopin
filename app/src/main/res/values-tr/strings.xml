@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sign_in">Giriş Yap</string>
+    <string name="sign_up">Kaydol</string>
+    <string name="skip">Atla</string>
+    <string name="back">Geri</string>
+    <string name="next">İleri</string>
+    <string name="finish">Sonlandır</string>
+    <string name="remove">Sil</string>
+    <string name="cancel">İptal</string>
+    <string name="confirm">Onayla</string>
+    <string name="orders">Siparişler</string>
+    <string name="favorites">Favoriler</string>
+    <string name="wallet">Cüzdan</string>
+    <string name="comments">Yorumlar</string>
+    <string name="email">E-posta</string>
+    <string name="password">Şifre</string>
+    <string name="full_name">İsim</string>
+    <string name="username">Kullanıcı adı</string>
+    <string name="password_again">Şifre (tekrar)</string>
+    <string name="added_to_cart">Sepete eklendi</string>
+    <string name="add_to_cart">Sepete ekle</string>
+    <string name="title_products">Ürünler</string>
+    <string name="title_search">Arama</string>
+    <string name="title_profile">Profil</string>
+    <string name="customer_service">Müşteri Hizmetleri</string>
+    <string name="about_shopin">Shopin Hakkında</string>
+    <string name="search_in_products">Ürünlerde ara…</string>
+    <string name="edit_profile">Profili düzenle</string>
+    <string name="empty_cart">Sepetinizde hiç ürün yok!</string>
+    <string name="proceed_to_checkout">Ödemeye geç</string>
+    <string name="easy_shopping">Kolay\nAlışveriş</string>
+    <string name="special_discounts">Özel\nİndirimler</string>
+    <string name="free_shipping">Ücretsiz\nKargo</string>
+    <string name="on_boarding_1">Shopin mobil uygulamamız, size en iyi alışveriş deneyimini sunabilmek için pek çok özelliğe sahiptir.</string>
+    <string name="on_boarding_2">Hemen kaydol ve kargo için ücret ödeme.</string>
+    <string name="on_boarding_3">Sizi önemsiyoruz. Kuponlar, indirimler ve diğer fırsatlar bir tık uzağınızda!</string>
+    <string name="dialog_title_remove_from_cart">Sepetten çıkartılsın mı?</string>
+    <string name="dialog_title_confirm_payment">Ödeme onaylansın mı?</string>
+    <string name="dialog_title_sign_out">Çıkış yapılsın mı?</string>
+    <string name="dialog_title_sign_up_successful">Kayıt başarılı</string>
+    <string name="dialog_message_remove_from_cart">Bu ürünü sepetinizden çıkartmak üzeresiniz.</string>
+    <string name="dialog_message_confirm_payment">Ödemeyi onaylamak üzeresiniz.</string>
+    <string name="dialog_message_payment_successful">Ödeme başarılı</string>
+    <string name="dialog_message_sign_out">Çıkış yapmak üzeresiniz.</string>
+    <string name="dialog_message_sign_up_successful">Giriş ekranına yönlendiriliyorsunuz.</string>
+    <string name="toast_message_added_to_cart">Sepete eklendi</string>
+    <string name="description_product_image">Ürün Görseli</string>
+    <string name="description_easy_shopping">Kolay Alışveriş</string>
+    <string name="description_free_shipping">Ücretsiz Kargo</string>
+    <string name="description_special_discounts">Özel İndirimler</string>
+    <string name="description_login">Giriş Yap Görseli</string>
+    <string name="description_profile_photo">Profil Fotoğrafı</string>
+
+    <plurals name="review">
+        <item quantity="one">%d değerlendirme</item>
+        <item quantity="other">%d değerlendirme</item>
+    </plurals>
+</resources>

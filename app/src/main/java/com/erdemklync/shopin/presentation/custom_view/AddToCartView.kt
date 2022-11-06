@@ -4,15 +4,10 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import com.erdemklync.shopin.R
 import com.erdemklync.shopin.databinding.ViewAddToCartBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import kotlin.properties.Delegates
 
 class AddToCartView @JvmOverloads constructor(
@@ -30,7 +25,7 @@ class AddToCartView @JvmOverloads constructor(
     private var maxLimit: Int
     private var minLimit: Int
 
-    var amount: Int by Delegates.observable(1) { _, oldValue, newValue ->
+    var amount: Int by Delegates.observable(1) { _, _, newValue ->
         binding.textAmount.text = newValue.toString()
     }
 
@@ -74,13 +69,4 @@ class AddToCartView @JvmOverloads constructor(
             binding.textAmount.text = amount.toString()
         }
     }
-
-    fun animateButtonContent() = CoroutineScope(Dispatchers.Main).launch {
-        binding.groupView.visibility = View.INVISIBLE
-        binding.textAddedToCart.visibility = View.VISIBLE
-        delay(2000)
-        binding.groupView.visibility = View.VISIBLE
-        binding.textAddedToCart.visibility = View.INVISIBLE
-    }
-
 }

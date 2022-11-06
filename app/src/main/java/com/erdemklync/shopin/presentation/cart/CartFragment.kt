@@ -108,33 +108,34 @@ class CartFragment : BottomSheetDialogFragment() {
     }
 
     private fun showRemoveFromCartDialog(product: Product) = MaterialAlertDialogBuilder(requireContext())
-        .setTitle("Remove from cart?")
-        .setMessage("Are you sure to remove this item from your cart?")
-        .setPositiveButton("Remove"){ dialog, _ ->
+        .setTitle(resources.getString(R.string.dialog_title_remove_from_cart))
+        .setMessage(resources.getString(R.string.dialog_message_remove_from_cart))
+        .setPositiveButton(resources.getString(R.string.remove)){ dialog, _ ->
             dialog.dismiss()
             viewModel.removeProductFromCart(product)
         }
-        .setNegativeButton("Cancel") { dialog, _ ->
+        .setNeutralButton(resources.getString(R.string.cancel)) { dialog, _ ->
             dialog.dismiss()
         }
         .show()
 
     private fun showConfirmPaymentDialog() = MaterialAlertDialogBuilder(requireContext())
-        .setTitle("Confirm payment?")
-        .setMessage("Are you sure to confirm the payment?")
-        .setPositiveButton("Confirm"){ dialog, _ ->
+
+        .setTitle(resources.getString(R.string.dialog_title_confirm_payment))
+        .setMessage(resources.getString(R.string.dialog_message_confirm_payment))
+        .setPositiveButton(resources.getString(R.string.confirm)){ dialog, _ ->
             dialog.dismiss()
             viewModel.clearCart()
             showPaymentSuccessfulDialog()
         }
-        .setNegativeButton("Cancel") { dialog, _ ->
+        .setNeutralButton(resources.getString(R.string.cancel)) { dialog, _ ->
             dialog.dismiss()
         }
         .show()
 
     private fun showPaymentSuccessfulDialog() = MaterialAlertDialogBuilder(requireContext())
         .setIcon(R.drawable.ic_check)
-        .setMessage("Payment successful")
+        .setMessage(resources.getString(R.string.dialog_message_payment_successful))
         .setCancelable(false)
         .show()
         .also {

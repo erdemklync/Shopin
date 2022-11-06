@@ -57,8 +57,8 @@ class SignUpFragment: Fragment(R.layout.fragment_sign_up) {
                                 val alertDialog = AlertDialog
                                     .Builder(requireContext())
                                     .setIcon(R.drawable.ic_check)
-                                    .setTitle("Kayıt başarılı!")
-                                    .setMessage("Giriş sayfasına yönlendiriliyorsunuz.")
+                                    .setTitle(resources.getString(R.string.dialog_title_sign_up_successful))
+                                    .setMessage(resources.getString(R.string.dialog_message_sign_up_successful))
                                     .setCancelable(false)
                                     .show()
                                 delay(4000)

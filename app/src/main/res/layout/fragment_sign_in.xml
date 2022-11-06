@@ -11,7 +11,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="8dp"
-		android:hint="Email"
+		android:hint="@string/email"
 		style="@style/Widget.Shopin.InputLayout"
 
 		app:layout_constraintTop_toTopOf="parent">
@@ -29,7 +29,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="8dp"
-		android:hint="Password"
+		android:hint="@string/password"
 		app:passwordToggleEnabled="true"
 		style="@style/Widget.Shopin.InputLayout"
 
@@ -49,7 +49,7 @@
         android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="16dp"
-		android:text="Sign In"
+		android:text="@string/sign_in"
 
 		app:layout_constraintTop_toBottomOf="@id/input_layout_sign_in_password"
 		app:layout_constraintStart_toStartOf="parent"

@@ -24,12 +24,12 @@ class AmountView @JvmOverloads constructor(
     private var maxLimit: Int
     private var minLimit: Int
 
-    var amount: Int by Delegates.observable(1) { _, oldValue, newValue ->
+    var amount: Int by Delegates.observable(1) { _, _, newValue ->
         binding.textAmount.text = newValue.toString()
         if (newValue == 1) {
-            binding.buttonDecrease.setImageResource(R.drawable.ic_delete)
+            binding.buttonDecrease.icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_delete, context.theme)
         } else {
-            binding.buttonDecrease.setImageResource(R.drawable.ic_remove)
+            binding.buttonDecrease.icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_remove, context.theme)
         }
     }
 

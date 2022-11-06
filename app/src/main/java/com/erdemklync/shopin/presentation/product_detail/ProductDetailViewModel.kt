@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.erdemklync.shopin.domain.use_cases.cart.CartUseCases
 import com.erdemklync.shopin.domain.use_cases.product.ProductUseCases
+import com.erdemklync.shopin.util.Constants
 import com.erdemklync.shopin.util.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -24,7 +25,7 @@ class ProductDetailViewModel @Inject constructor(
     val state get() = _state.asStateFlow()
 
     init {
-        savedStateHandle.get<Int>("productId")?.let { productId ->
+        savedStateHandle.get<Int>(Constants.ARGUMENT_PRODUCT_ID)?.let { productId ->
             getProductById(productId)
         }
     }

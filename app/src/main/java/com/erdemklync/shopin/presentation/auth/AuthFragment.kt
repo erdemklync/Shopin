@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.erdemklync.shopin.R
 import com.erdemklync.shopin.databinding.FragmentAuthBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,8 +37,8 @@ class AuthFragment: Fragment() {
     private fun setUpTabLayout() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             when (position) {
-                0 -> tab.text = "Sign In"
-                1 -> tab.text = "Sign Up"
+                0 -> tab.text = resources.getString(R.string.sign_in)
+                1 -> tab.text = resources.getString(R.string.sign_up)
             }
         }.attach()
     }

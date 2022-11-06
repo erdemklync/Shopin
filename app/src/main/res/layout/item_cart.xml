@@ -19,7 +19,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/img"
-            android:contentDescription="@string/content_description_product_image"
+            android:contentDescription="@string/description_product_image"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

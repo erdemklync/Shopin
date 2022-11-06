@@ -10,6 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.erdemklync.shopin.R
 import com.erdemklync.shopin.databinding.FragmentProfileBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
@@ -54,18 +55,14 @@ class ProfileFragment : Fragment() {
 
     private fun showSignOutDialog() {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Sign out?")
-            .setMessage("Do you want to sign out?")
-            .setPositiveButton(
-                "Sign Out"
-            ) { _, _ ->
+            .setTitle(resources.getString(R.string.dialog_title_sign_out))
+            .setMessage(resources.getString(R.string.dialog_message_sign_out))
+            .setPositiveButton(resources.getString(R.string.confirm)) { _, _ ->
                 viewModel.signOut().also {
                     val action = ProfileFragmentDirections.actionProfileFragmentToAuthFragment()
                     findNavController().navigate(action)
                 }
-            }.setNegativeButton(
-                "Cancel"
-            ) { dialog, _ ->
+            }.setNeutralButton(resources.getString(R.string.cancel)) { dialog, _ ->
                 dialog.cancel()
             }.show()
     }
