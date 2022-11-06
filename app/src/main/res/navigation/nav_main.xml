@@ -8,7 +8,7 @@
 
 	<fragment
 		android:id="@+id/productsFragment"
-		android:name="com.erdemklync.shopin.presentation.products.ProductsFragment"
+		android:name="com.erdemklync.shopin.presentation.features.products.ProductsFragment"
 		android:label="fragment_products"
 		tools:layout="@layout/fragment_products" >
 		<action
@@ -17,7 +17,7 @@
 	</fragment>
 	<fragment
 		android:id="@+id/productDetailFragment"
-		android:name="com.erdemklync.shopin.presentation.product_detail.ProductDetailFragment"
+		android:name="com.erdemklync.shopin.presentation.features.product_detail.ProductDetailFragment"
 		android:label="fragment_product_detail"
 		tools:layout="@layout/fragment_product_detail" >
 		<argument
@@ -26,7 +26,7 @@
 	</fragment>
 	<fragment
 		android:id="@+id/searchFragment"
-		android:name="com.erdemklync.shopin.presentation.search.SearchFragment"
+		android:name="com.erdemklync.shopin.presentation.features.search.SearchFragment"
 		android:label="fragment_search"
 		tools:layout="@layout/fragment_search" >
 		<action
@@ -35,7 +35,7 @@
 	</fragment>
 	<fragment
 		android:id="@+id/splashFragment"
-		android:name="com.erdemklync.shopin.presentation.splash.SplashFragment"
+		android:name="com.erdemklync.shopin.presentation.features.splash.SplashFragment"
 		android:label="SplashFragment"
 		tools:layout="@layout/fragment_splash">
 		<action
@@ -57,7 +57,7 @@
 	</fragment>
 	<fragment
 		android:id="@+id/onBoardingFragment"
-		android:name="com.erdemklync.shopin.presentation.on_boarding.OnBoardingFragment"
+		android:name="com.erdemklync.shopin.presentation.features.on_boarding.OnBoardingFragment"
 		android:label="fragment_on_boarding"
 		tools:layout="@layout/fragment_on_boarding" >
 		<action
@@ -68,7 +68,7 @@
 	</fragment>
 	<fragment
 		android:id="@+id/authFragment"
-		android:name="com.erdemklync.shopin.presentation.auth.AuthFragment"
+		android:name="com.erdemklync.shopin.presentation.features.auth.AuthFragment"
 		android:label="fragment_auth"
 		tools:layout="@layout/fragment_auth" >
 		<action
@@ -77,7 +77,7 @@
 	</fragment>
 	<fragment
 		android:id="@+id/profileFragment"
-		android:name="com.erdemklync.shopin.presentation.profile.ProfileFragment"
+		android:name="com.erdemklync.shopin.presentation.features.profile.ProfileFragment"
 		android:label="fragment_profile"
 		tools:layout="@layout/fragment_profile" >
 		<action
@@ -88,7 +88,7 @@
 	</fragment>
 	<dialog
 		android:id="@+id/cartFragment"
-		android:name="com.erdemklync.shopin.presentation.cart.CartFragment"
+		android:name="com.erdemklync.shopin.presentation.features.cart.CartFragment"
 		android:label="fragment_cart"
 		tools:layout="@layout/fragment_cart" />
 

@@ -5,7 +5,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".presentation.product_detail.ProductDetailFragment">
+	tools:context=".presentation.features.product_detail.ProductDetailFragment">
 
 	<androidx.constraintlayout.widget.Group
 		android:id="@+id/group_product_detail"
@@ -138,7 +138,7 @@
 			app:layout_constraintStart_toStartOf="parent"
 			/>
 
-		<com.erdemklync.shopin.presentation.custom_view.AddToCartView
+		<com.erdemklync.shopin.presentation.customview.AddToCartView
 			android:id="@+id/view_add_to_cart"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

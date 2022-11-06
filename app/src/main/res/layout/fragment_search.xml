@@ -12,7 +12,7 @@
 	android:clipToPadding="false"
 	android:animateLayoutChanges="true"
 	app:layoutDescription="@xml/fragment_search_scene"
-	tools:context=".presentation.search.SearchFragment">
+	tools:context=".presentation.features.search.SearchFragment">
 
 	<com.google.android.material.textfield.TextInputLayout
 		android:id="@+id/search_view"

@@ -7,7 +7,7 @@
 	android:layout_height="match_parent"
 	android:animateLayoutChanges="true"
 	android:background="@color/md_theme_light_primary"
-	tools:context=".presentation.on_boarding.OnBoardingFragment">
+	tools:context=".presentation.features.on_boarding.OnBoardingFragment">
 
 	<Button
 		android:id="@+id/button_skip"

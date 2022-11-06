@@ -7,7 +7,7 @@
 	android:layout_height="match_parent"
 	android:paddingTop="?attr/actionBarSize"
 	android:animateLayoutChanges="true"
-	tools:context=".presentation.products.ProductsFragment">
+	tools:context=".presentation.features.products.ProductsFragment">
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/recycler_view_products"

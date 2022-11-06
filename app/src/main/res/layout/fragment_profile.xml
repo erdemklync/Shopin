@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize"
     android:paddingHorizontal="16dp"
-    tools:context=".presentation.profile.ProfileFragment">
+    tools:context=".presentation.features.profile.ProfileFragment">
 
     <Button
         android:id="@+id/button_log_out"

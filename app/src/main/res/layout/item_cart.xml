@@ -53,7 +53,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             />
 
-        <com.erdemklync.shopin.presentation.custom_view.AmountView
+        <com.erdemklync.shopin.presentation.customview.AmountView
             android:id="@+id/amount_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
