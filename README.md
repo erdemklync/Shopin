@@ -100,7 +100,7 @@ Projeyi klonlayabilir
 
 veya
 
-<a href="https://github.com/erdemklync/Shopin/releases/tag/1.0">buradan</a> APK dosyasını indirebilirsiniz.
+<a href="https://github.com/erdemklync/Shopin/releases/tag/Debug">buradan</a> APK dosyasını indirebilirsiniz.
 
 
 ### 📧 İletişim
