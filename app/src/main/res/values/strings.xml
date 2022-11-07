@@ -52,8 +52,9 @@
     <string name="description_login">Login Image</string>
     <string name="description_profile_photo">Profile photo</string>
     <string name="cart">Cart</string>
+	<string name="sign_up_successful">Sign Up Successful</string>
 
-    <plurals name="review">
+	<plurals name="review">
         <item quantity="zero">No review</item>
         <item quantity="one">%d review</item>
         <item quantity="other">%d reviews</item>

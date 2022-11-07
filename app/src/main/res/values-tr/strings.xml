@@ -52,8 +52,9 @@
     <string name="description_login">Giriş Yap Görseli</string>
     <string name="description_profile_photo">Profil Fotoğrafı</string>
     <string name="cart">Sepet</string>
+	<string name="sign_up_successful">Kayıt başarılı</string>
 
-    <plurals name="review">
+	<plurals name="review">
         <item quantity="one">%d değerlendirme</item>
         <item quantity="other">%d değerlendirme</item>
     </plurals>

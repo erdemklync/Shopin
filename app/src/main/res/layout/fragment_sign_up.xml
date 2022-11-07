@@ -20,6 +20,8 @@
 			android:id="@+id/edit_text_full_name"
             android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:maxLines="1"
+			android:inputType="text"
 			/>
 
 	</com.google.android.material.textfield.TextInputLayout>
@@ -38,6 +40,8 @@
 		android:id="@+id/edit_text_username"
         android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:maxLines="1"
+		android:inputType="text"
 		/>
 
 	</com.google.android.material.textfield.TextInputLayout>
