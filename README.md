@@ -63,7 +63,6 @@ com.erdemklync.shopin
 │   ├───features
 │   │   ├───auth
 │   │   ├───cart
-│   │   ├───main
 │   │   ├───on_boarding
 │   │   ├───products
 │   │   ├───product_detail
