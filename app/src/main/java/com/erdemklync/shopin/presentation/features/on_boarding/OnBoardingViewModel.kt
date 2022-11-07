@@ -12,9 +12,7 @@ class OnBoardingViewModel @Inject constructor(
     private val dataStoreManager: DataStoreManager
 ) : ViewModel() {
 
-    init {
-        viewModelScope.launch {
-            dataStoreManager.setFirstTime(true)
-        }
+    fun setFirstTime() = viewModelScope.launch {
+        dataStoreManager.setFirstTime(false)
     }
 }
