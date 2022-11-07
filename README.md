@@ -1,3 +1,4 @@
+<br/>
 <div align="center">
     <a>
         <img src="assets/shopin.png" alt="Logo" height="100">
@@ -5,6 +6,21 @@
 </div>
 
 ### 🖼️ Ekran Görüntüleri
+<table align="center">
+  <tr>
+    <td><img src="assets/1.png" height="400px" /></td>
+    <td><img src="assets/2.png" height="400px" /></td>
+    <td><img src="assets/3.png" height="400px" /></td>
+    <td><img src="assets/4.png" height="400px" /></td>
+  </tr>
+  <tr>
+    <td><img src="assets/5.png" height="400px" /></td>
+    <td><img src="assets/6.png" height="400px" /></td>
+    <td><img src="assets/7.png" height="400px" /></td>
+    <td><img src="assets/8.png" height="400px" /></td>
+  </tr>
+</table>
+
 
 ### ℹ️ Proje Hakkında
 Shopin, <a href="fakestoreapi.com">Fake Store API</a> verilerini kullanan bir e-ticaret uygulaması prototipidir. Ürünlerin detaylarını incleyebilir, sepetinize ekleyebilir ve ürünler arasında arama ve filtreleme işlemleri yapabilirsiniz.
