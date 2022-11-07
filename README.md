@@ -11,12 +11,12 @@
     <td><img src="assets/1.png" height="400px" /></td>
     <td><img src="assets/2.png" height="400px" /></td>
     <td><img src="assets/3.png" height="400px" /></td>
-    <td><img src="assets/4.png" height="400px" /></td>
+    <td><img src="assets/1.gif" height="400px" /></td>
   </tr>
   <tr>
     <td><img src="assets/5.png" height="400px" /></td>
-    <td><img src="assets/6.png" height="400px" /></td>
-    <td><img src="assets/7.png" height="400px" /></td>
+    <td><img src="assets/2.gif" height="400px" /></td>
+    <td><img src="assets/3.gif" height="400px" /></td>
     <td><img src="assets/8.png" height="400px" /></td>
   </tr>
 </table>
